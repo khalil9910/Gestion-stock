@@ -32,7 +32,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd zip pdo pdo_mysql mbstring xml
 
 # Enable Apache rewrite module
-RUN a2enmod rewrite
+RUN a2enmod rewrite \
+  && (a2dismod mpm_event || true) \
+  && (a2dismod mpm_worker || true) \
+  && a2enmod mpm_prefork
 
 # Set working directory
 WORKDIR /var/www/html
