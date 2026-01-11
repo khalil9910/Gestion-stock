@@ -1,4 +1,13 @@
 # Base image PHP + Apache
+FROM node:20-alpine AS nodebuild
+WORKDIR /app
+COPY package.json package-lock.json ./
+COPY vite.config.js postcss.config.js tailwind.config.js ./
+COPY resources ./resources
+COPY public ./public
+RUN npm ci
+RUN npm run build
+
 FROM php:8.2-apache
 
 # Install system dependencies
@@ -7,6 +16,10 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
+    libfontconfig1 \
+    libxrender1 \
+    libonig-dev \
+    libxml2-dev \
     zip \
     unzip \
     git \
@@ -16,7 +29,7 @@ RUN apt-get update && apt-get install -y \
 
 # Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip pdo pdo_mysql
+    && docker-php-ext-install gd zip pdo pdo_mysql mbstring xml
 
 # Enable Apache rewrite module
 RUN a2enmod rewrite
@@ -31,10 +44,22 @@ COPY . .
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Install PHP dependencies
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+
+COPY --from=nodebuild /app/public/build /var/www/html/public/build
+
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
+
+RUN { \
+    echo '<Directory /var/www/html/public>'; \
+    echo '    AllowOverride All'; \
+    echo '    Require all granted'; \
+    echo '</Directory>'; \
+  } > /etc/apache2/conf-available/laravel.conf \
+  && a2enconf laravel
 
 # Fix permissions
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 EXPOSE 80
 
