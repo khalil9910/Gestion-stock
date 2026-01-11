@@ -79,4 +79,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 80
 
 # Start Apache in foreground
-CMD ["/bin/sh", "-lc", "set -e; rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf; a2enmod mpm_prefork rewrite >/dev/null 2>&1 || true; : \"${PORT:=80}\"; sed -ri -e \"s/^Listen[[:space:]]+80$/Listen ${PORT}/g\" /etc/apache2/ports.conf; sed -ri -e \"s/<VirtualHost[[:space:]]+\\\\*:80>/<VirtualHost *:${PORT}>/g\" /etc/apache2/sites-available/000-default.conf; exec apache2ctl -D FOREGROUND -e error"]
+CMD ["/bin/sh", "-lc", "set -e; rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf; a2enmod mpm_prefork rewrite >/dev/null 2>&1 || true; : \"${PORT:=80}\"; sed -ri -e \"s/^Listen[[:space:]]+80$/Listen ${PORT}/g\" /etc/apache2/ports.conf; sed -ri -e \"s/<VirtualHost[[:space:]]+\\\\*:80>/<VirtualHost *:${PORT}>/g\" /etc/apache2/sites-available/000-default.conf; rm -f /tmp/apache-stderr; mkfifo /tmp/apache-stderr; (grep -vE 'AH00163|AH00094' /tmp/apache-stderr >&2 &) ; exec apache2ctl -D FOREGROUND -e error 2>/tmp/apache-stderr"]
