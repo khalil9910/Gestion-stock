@@ -33,9 +33,10 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 
 # Enable Apache rewrite module
 RUN a2enmod rewrite \
-  && (a2dismod mpm_event || true) \
-  && (a2dismod mpm_worker || true) \
-  && a2enmod mpm_prefork
+  && (a2dismod mpm_event mpm_worker || true) \
+  && a2enmod mpm_prefork \
+  && rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf \
+            /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf
 
 # Set working directory
 WORKDIR /var/www/html
