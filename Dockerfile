@@ -58,6 +58,9 @@ RUN { \
   } > /etc/apache2/conf-available/laravel.conf \
   && a2enconf laravel
 
+RUN if [ -e /var/www/html/public/storage ] && [ ! -L /var/www/html/public/storage ]; then rm -rf /var/www/html/public/storage; fi \
+   && ln -sfn /var/www/html/storage/app/public /var/www/html/public/storage
+
 # Fix permissions
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
