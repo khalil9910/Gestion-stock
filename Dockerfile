@@ -40,6 +40,9 @@ RUN set -eux; \
   apache2ctl -M | grep -E 'mpm_(prefork|event|worker)_module' || true; \
   test "$(apache2ctl -M 2>/dev/null | grep -E -c 'mpm_(prefork|event|worker)_module')" -eq 1
 
+RUN echo 'ServerName localhost' > /etc/apache2/conf-available/servername.conf \
+  && a2enconf servername
+
 # Set working directory
 WORKDIR /var/www/html
 
