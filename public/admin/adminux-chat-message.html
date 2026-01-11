@@ -1,0 +1,2198 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- dir="rtl"-->
+
+<!-- Mirrored from adminuiux.com/adminuiux/gotri/html/adminux-chat-message.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Jan 2026 19:44:28 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>GoTRI - AdminUIUX - Bootstrap HTML Admin template - adminuiux.com</title>
+    <link rel="icon" type="image/png" href="assets/img/favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&amp;display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --adminuiux-content-font: "Roboto", sans-serif;
+            --adminuiux-content-font-weight: 400;
+            --adminuiux-title-font: "Inter", sans-serif;
+            --adminuiux-title-font-weight: 500;
+        }
+    </style>
+
+<script defer src="assets/js/appaebc.js?721b713cc942a65bce2f"></script><script defer src="assets/js/thirdpartyaebc.js?721b713cc942a65bce2f"></script><link href="assets/css/appaebc.css?721b713cc942a65bce2f" rel="stylesheet"></head>
+
+    <body class="main-bg main-bg-opac adminuiux-header-standard adminuiux-sidebar-standard bg-default adminuiux-header-fill-white adminuiux-sidebar-fill-theme scrollup theme-purple" data-theme="theme-purple" data-sidebarfill="adminuiux-sidebar-fill-theme" data-sidebarlayout="adminuiux-sidebar-standard" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-headerlayout="adminuiux-header-standard" data-bggradient="bg-default" data-headerfill="adminuiux-header-fill-white">
+        <!-- Pageloader -->
+<div class="pageloader">
+    <div class="container h-100">
+        <div class="row justify-content-center align-items-center text-center h-100">
+            <div class="col-12 mb-auto pt-4"></div>
+            <div class="col-auto">
+                <img src="assets/img/logo-512.png" alt="" class="height-100 mb-3">
+                <p class="h3 mb-0"><span class="text-gradient">GoTRI</span></p>
+                <p class="small text-secondary mb-3"><span class="">Admin Dashboard HTML Template</span></p>
+                <div class="loader6 mb-2 mx-auto" style="border-color: var(--adminuiux-theme-2);"></div>
+            </div>
+            <div class="col-12 mt-auto pb-4">
+                <p class="text-secondary">Petal of flower being ready to <span class="text-gradient">blossom</span>...</p>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- standard header -->
+<header class="adminuiux-header inner-page">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container-fluid">
+
+            <!-- main sidebar toggle -->
+            <button class="btn btn-link btn-square sidebar-toggler ms-1" type="button" onclick="initSidebar()">
+                <i class="sidebar-svg" data-feather="menu"></i>
+            </button>
+
+            <!-- logo -->
+            <a class="navbar-brand" href="adminux-dashboard.html">
+                <img data-bs-img="light" src="assets/img/logo.png" alt="">
+                <img data-bs-img="dark" src="assets/img/logo.png" alt="">
+                <div class="">
+                    <span class="h4">Go<span class="fw-bold">TRI</span></span>
+                    <p class="company-tagline">Best HTML template</p>
+                </div>
+            </a>
+
+            <!-- search -->
+            <div class="px-3 justify-content-center d-none d-lg-flex">
+                <div class="input-group input-group-md rounded search-wrap width-300 mx-auto">
+                    <span class="input-group-text border-0">
+                        <i class="bi bi-search"></i>
+                    </span>
+                    <input class="form-control border-0 " type="search" placeholder="Search here..." id="searchglobal">
+                    <div class="dropdown input-group-text border-0 px-2">
+                        <button class="dropdown-toggle btn btn-sm btn-link btn-square no-caret" type="button" id="searchfilter" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-sliders fs-6"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-dontclose width-300" aria-labelledby="searchfilter" style="">
+                            <ul class="nav nav-pills nav-fill" id="searchtab" role="tablist">
+                                <li class="nav-item" role="presentation"><button class="nav-link active" id="searchall-tab" data-bs-toggle="tab" data-bs-target="#searchall" type="button" role="tab" aria-controls="searchall" aria-selected="true">All</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" id="searchorders-tab" data-bs-toggle="tab" data-bs-target="#searchorders" type="button" role="tab" aria-controls="searchorders" aria-selected="false" tabindex="-1">Orders</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" id="searchcontacts-tab" data-bs-toggle="tab" data-bs-target="#searchcontacts" type="button" role="tab" aria-controls="searchcontacts" aria-selected="false" tabindex="-1">Contacts</button></li>
+                            </ul>
+                            <div class="tab-content py-3" id="searchtabContent">
+                                <div class="tab-pane fade active show" id="searchall" role="tabpanel" aria-labelledby="searchall-tab">
+                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Search apps</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch1"> <label class="form-check-label" for="isearchswitch1"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Include Pages</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch2" checked=""> <label class="form-check-label" for="isearchswitch2"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Internet resource</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch3" checked=""> <label class="form-check-label" for="isearchswitch3"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">News and Blogs</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch4"> <label class="form-check-label" for="isearchswitch4"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="searchorders" role="tabpanel" aria-labelledby="searchorders-tab">
+                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Show order ID</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch5"> <label class="form-check-label" for="isearchswitch5"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">International Order</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch6" checked=""> <label class="form-check-label" for="isearchswitch6"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Taxable Product</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch7" checked=""> <label class="form-check-label" for="isearchswitch7"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Published Product</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch8"> <label class="form-check-label" for="isearchswitch8"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="searchcontacts" role="tabpanel" aria-labelledby="searchcontacts-tab">
+                                    <ul class="list-group adminuiux-list-group list-group-flush bg-none show">
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Have email ID</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch9"> <label class="form-check-label" for="isearchswitch9"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Have phone number</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch10" checked=""> <label class="form-check-label" for="isearchswitch10"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Photo available</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch11" checked=""> <label class="form-check-label" for="isearchswitch11"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="row gx-3 gx-lg-4">
+                                                <div class="col">Referral</div>
+                                                <div class="col-auto">
+                                                    <div class="form-check form-switch"><input class="form-check-input" type="checkbox" role="switch" id="isearchswitch12"> <label class="form-check-label" for="isearchswitch12"></label></div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="p-1">
+                                <div class="row gx-3 gx-lg-4">
+                                    <div class="col"><button class="btn btn-link theme-red">Reset</button></div>
+                                    <div class="col-auto"><button class="btn btn-theme">Apply</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- menu -->
+            <div class="navbar-expand-xl d-none d-xl-block ms-3">
+                <div class="collapse navbar-collapse" id="mainheaderNavbar">
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle no-caret" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" data-bs-auto-close="outside">Pages</a>
+                            <div class="dropdown-menu">
+                                <div><a class="dropdown-item" href="adminux-profile-professional.html">Profile</a></div>
+                                <div class="dropend">
+                                    <a class="dropdown-item" data-bs-toggle="dropdown" aria-expanded="false" role="button" data-bs-auto-close="outside">
+                                        Company <span class="arrow bi bi-chevron-right"></span>
+                                    </a>
+                                    <div class="dropdown-menu">
+                                        <div><a class="dropdown-item active" href="adminux-company-profile.html">Company Profile</a></div>
+                                        <div><a class="dropdown-item" href="adminux-company-user-roles.html">User Roles </a></div>
+                                    </div>
+                                </div>
+                                <div><a class="dropdown-item" href="adminux-company-career.html">Career</a></div>
+                                <div><a class="dropdown-item" href="adminux-forum.html">Forum</a></div>
+                                <div>
+                                    <hr class="dropdown-divider">
+                                </div>
+                                <div><a class="dropdown-item" href="adminux-company-help-center.html">Help Center</a></div>
+                                <div><a class="dropdown-item" href="adminux-onboarding.html">Onboarding</a></div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle no-caret" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Components</a>
+                            <div class="dropdown-menu width-300">
+                                <div class="dropdown-title mb-3 p-2">
+                                    <h5>Creative &amp; Unique Components</h5>
+                                    <p class="text-secondary small">Our components are flexible to adopt. Use these to create new page, make UI template design unique and consistent.</p>
+                                </div>
+                                <div class="row g-0">
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <div><a class="dropdown-item" href="component-cards.html"><i class="bi bi-card-heading me-2"></i>Cards</a></div>
+                                        <div><a class="dropdown-item" href="component-chartjs.html"><i class="bi bi-bar-chart me-2"></i>Chartjs</a></div>
+                                        <div><a class="dropdown-item" href="component-daterangepicker.html"><i class="bi bi-calendar-event me-2"></i>Datepicker</a></div>
+                                        <div><a class="dropdown-item" href="component-full-calendar.html"><i class="bi bi-calendar-week me-2"></i>Calendar</a></div>
+                                        <div><a class="dropdown-item" href="component-progress.html"><i class="bi bi-clock-history me-2"></i>Progress</a></div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <div><a class="dropdown-item" href="component-collapse.html"><i class="bi bi-card-text me-2"></i>Collapse</a></div>
+                                        <div><a class="dropdown-item" href="component-pricing.html"><i class="bi bi-newspaper me-2"></i>Pricing</a></div>
+                                        <div><a class="dropdown-item" href="component-modal-dialogues.html"><i class="bi bi-star me-2"></i>Modal Box</a></div>
+                                        <div><a class="dropdown-item" href="component-avatar.html"><i class="bi bi-person-circle me-2"></i>Avatar</a></div>
+                                        <div><a class="dropdown-item" href="component-progressbar-js.html"><i class="bi bi-kanban-fill me-2"></i>ProgressBar js</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle no-caret" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Supportive</a>
+                            <div class="dropdown-menu width-300">
+                                <div class="dropdown-title mb-3 p-2">
+                                    <h5>Supportive &amp; Helpful Pages</h5>
+                                    <p class="text-secondary small">Do not make your user lost somewhere else from where they can't come back. Make important journey flawless.</p>
+                                </div>
+                                <div class="row g-0">
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <div><a class="dropdown-item" href="adminux-login.html"><i class="bi bi-person me-2"></i>Sign in</a></div>
+                                        <div><a class="dropdown-item" href="adminux-signup.html"><i class="bi bi-person-plus me-2"></i>Sign up</a></div>
+                                        <div><a class="dropdown-item" href="adminux-forgot-password.html"><i class="bi bi-key me-2"></i>Password</a></div>
+                                        <div><a class="dropdown-item" href="adminux-comingsoon.html"><i class="bi bi-alarm me-2"></i>Coming Soon</a></div>
+                                    </div>
+                                    <div class="col-12 col-md-12 col-lg-6">
+                                        <div><a class="dropdown-item" href="adminux-page-not-found-2.html"><i class="bi bi-bug me-2"></i>Error</a></div>
+                                        <div><a class="dropdown-item" href="adminux-onboarding.html"><i class="bi bi-emoji-smile me-2"></i>Onboarding</a></div>
+                                        <div><a class="dropdown-item" href="adminux-maintenance.html"><i class="bi bi-gear me-2"></i>Maintenance</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- right icons button -->
+            <div class="ms-auto px-4 d-none d-xxl-block">
+                <div class="row gx-3 align-items-center">
+                    <div class="col-auto">
+                        <h2>36<span class="text-secondary fw-normal"><sup>&deg;</sup>C</span></h2>
+                    </div>
+                    <div class="col-auto">
+                        <p class="lh-20">
+                            <span class="text-secondary small mb-0">11:24am</span><br>
+                            London
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-auto ms-xxl-0">
+                <!-- global search toggle -->
+                <button class="btn btn-link btn-square btn-icon btn-link-header d-lg-none" type="button" onclick="openSearch()">
+                    <i data-feather="search"></i>
+                </button>
+
+                <!-- dark mode -->
+                <button class="btn btn-link btn-square btnsunmoon btn-link-header" id="btn-layout-modes-dark-page">
+                    <i class="sun mx-auto" data-feather="sun"></i>
+                    <i class="moon mx-auto" data-feather="moon"></i>
+                </button>
+
+                <!-- application list dropdown -->
+                <div class="dropdown d-none d-sm-inline-block">
+                    <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle no-caret" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i data-feather="grid"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end width-300 pt-0 px-0 overflow-hidden">
+                        <div class="p-3 rounded mb-2">
+                            <h5 class="mb-0">Applications</h5>
+                            <p class="text-secondary small">Make your app innovative</p>
+                        </div>
+                        <div class="px-2">
+                            <div class="row gx-2 text-center mb-2">
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="adminux-finance-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-bank fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Finance</p>
+                                        <p class="fs-12 opacity-50 mb-2">Accounting</p>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="adminux-network-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-globe fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Network</p>
+                                        <p class="fs-12 opacity-50 mb-2">Stabilize</p>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="adminux-inventory-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-box fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Inventory</p>
+                                        <p class="fs-12 opacity-50 mb-2">Assuring</p>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="https://www.adminuiux.com/adminuiux/gotri/html/adminux-project-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-folder fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Project</p>
+                                        <p class="fs-12 opacity-50 mb-2">Management</p>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="adminux-social-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-people fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Social</p>
+                                        <p class="fs-12 opacity-50 mb-2">Tracking</p>
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <a class="dropdown-item square-item position-relative" href="https://www.adminuiux.com/adminuiux/gotri/html/adminux-learning-dashboard.html">
+                                        <div class="avatar avatar-40 rounded my-2">
+                                            <i class="bi bi-journal-bookmark fs-5 mx-0"></i>
+                                        </div>
+                                        <p class="mb-0">Learning</p>
+                                        <p class="fs-12 opacity-50 mb-2">Make-easy</p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a class="btn btn-link text-center" href="adminux-dashboard.html">View all
+                                <i class="bi bi-arrow-right fs-14"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- language dropdown -->
+                <div class="dropdown d-none d-sm-inline-block" id="langSelect">
+                    <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle no-caret px-0" type="button" data-bs-popperConfig="null" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="assets/img/adminuiux/english.png" class="avatar avatar-28 rounded-circle" id="langimg" />
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item active" data-value="EN"><img src="assets/img/adminuiux/english.png" class="avatar avatar-28 rounded-circle me-2" /> English</a></li>
+                        <li><a class="dropdown-item" data-value="FR"><img src="assets/img/adminuiux/france.png" class="avatar avatar-28 rounded-circle me-2" /> French</a></li>
+                        <li><a class="dropdown-item" data-value="CH"><img src="assets/img/adminuiux/german.png" class="avatar avatar-28 rounded-circle me-2" /> German</a></li>
+                    </ul>
+                </div>
+
+                <!-- notification dropdown -->
+                <button class="btn btn-link btn-square btn-icon btn-link-header dropdown-toggle position-relative no-caret" type="button" data-bs-toggle="offcanvas" data-bs-target="#view-notification" aria-expanded="false">
+                    <i data-feather="bell"></i>
+                    <span class="position-absolute top-0 end-0 badge rounded-pill bg-danger p-1">
+                        <small>9+</small>
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
+
+                <!-- profile dropdown -->
+                <div class="dropdown d-inline-block">
+                    <a class="dropdown-toggle btn btn-link btn-square btn-link-header style-none no-caret px-0" id="userprofiledd" data-bs-popperConfig="null" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                        <div class="row gx-0 d-inline-flex">
+                            <div class="col-auto align-self-center">
+                                <figure class="avatar avatar-28 rounded-circle coverimg align-middle">
+                                    <img src="assets/img/adminuiux/user-6.jpg" alt="" id="userphotoonboarding2">
+                                </figure>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end width-300 px-0 pt-0" aria-labelledby="userprofiledd">
+                        <div class="p-3 rounded ">
+                            <a href="adminux-myprofile.html" class="dropdown-item">
+                                <div class="row gx-3">
+                                    <div class="col-auto ">
+                                        <figure class="avatar avatar-50 rounded-circle coverimg align-middle">
+                                            <img src="assets/img/adminuiux/user-6.jpg" alt="">
+                                        </figure>
+                                    </div>
+                                    <div class="col align-self-center ">
+                                        <h5 class="mb-1">AdminUIUX</h5>
+                                        <p class="small"><i class="bi bi-trophy me-2"></i> United States</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="px-2">
+                            <div>
+                                <a class="dropdown-item" href="adminux-dashboard.html">
+                                    <div class="row g-0">
+                                        <div class="col align-self-center">
+                                            <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-columns"></i></span>
+                                            My Dashboard
+                                        </div>
+                                        <div class="col-auto avatar-group">
+                                            <figure class="avatar avatar-30 coverimg rounded-circle">
+                                                <img src="assets/img/adminuiux/user-1.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-30 coverimg rounded-circle">
+                                                <img src="assets/img/adminuiux/user-2.jpg" alt="">
+                                            </figure>
+                                            <figure class="avatar avatar-30 coverimg rounded-circle">
+                                                <img src="assets/img/adminuiux/user-4.jpg" alt="">
+                                            </figure>
+                                            <div class="avatar avatar-30 bg-theme-1 rounded-circle text-center align-middle">
+                                                <small class="fs-10 align-middle">9+</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="adminux-earning.html">
+                                    <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-cash"></i></span> Earning
+                                </a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="adminux-subscription.html">
+                                    <div class="row gx-3 gx-lg-4 align-items-center">
+                                        <div class="col">
+                                            <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-gift"></i></span>
+                                            Subscription
+                                        </div>
+                                        <div class="col-auto">
+                                            <p class="small text-success">Upgrade</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="adminux-statement.html">
+                                    <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-clipboard-check"></i></span> Statement
+                                </a>
+                            </div>
+                            <div class="dropdown open-left dropdown-dontclose">
+                                <a class="dropdown-item" data-bs-toggle="dropdown" aria-expanded="false" data-bs-popperConfig="null" role="button">
+                                    <div class="row gx-3 align-items-center">
+                                        <div class="col"><span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-translate"></i></span> Language
+                                        </div>
+                                        <div class="col-auto"><small class="vm">EN - English</small> <i class="bi bi-translate"></i></div>
+                                        <div class="col-auto"><span class="arrow bi bi-chevron-right"></span></div>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                    <div><a class="dropdown-item active" data-value="EN">EN - English</a></div>
+                                    <div><a class="dropdown-item" data-value="FR">FR - French</a></div>
+                                    <div><a class="dropdown-item" data-value="CH">CH - Chinese</a></div>
+                                    <div><a class="dropdown-item" data-value="HI">HI - Hindi</a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <a class="dropdown-item" href="adminux-account-setting.html">
+                                    <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-gear"></i></span> Account Setting
+                                </a>
+                            </div>
+                            <div>
+                                <a class="dropdown-item theme-red" href="adminux-login.html">
+                                    <span class="avatar avatar-30 rounded-circle me-1"><i class="bi bi-power"></i></span> Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+</header>
+                <div class="adminuiux-wrap">
+
+                    <!-- Standard sidebar -->
+                    <!-- Standard sidebar -->
+<div class="adminuiux-sidebar shadow-sm">
+    <div class="adminuiux-sidebar-inner">
+
+        <!-- user menu navigation -->
+        <ul class="nav flex-column menu-active-line mt-3">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="adminux-dashboard.html">
+                    <i class="menu-icon bi bi-house-door"></i>
+                    <div class="col menu-name">Dashboard</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-finance-dashboard.html">
+                    <i class="menu-icon bi bi-cash-stack"></i>
+                    <div class="col align-self-center menu-name">Finance</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-network-dashboard.html">
+                    <i class="menu-icon bi bi-grid"></i>
+                    <div class="col align-self-center menu-name">Network</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-social-dashboard.html">
+                    <i class="menu-icon bi bi-bullseye"></i>
+                    <div class="col align-self-center menu-name">Social</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-inventory-dashboard.html">
+                    <i class="menu-icon bi bi-box"></i>
+                    <div class="col align-self-center menu-name">Inventory</div>
+                </a>
+            </li>
+        </ul>
+
+        <!-- user secondary menu navigation -->
+        <div class="px-3 not-iconic">
+            <h6>Pages</h6>
+        </div>
+        <ul class="nav flex-column menu-active-line">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-person-circle"></i>
+                    <div class="col menu-name">Profile</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-profile-professional.html">
+                            <i class="menu-icon bi bi-briefcase"></i>
+                            <div class="col align-self-center menu-name">Professional</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-profile-social.html">
+                            <i class="menu-icon bi bi-people"></i>
+                            <div class="col align-self-center menu-name">Social</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-profile-analytical.html">
+                            <i class="menu-icon bi bi-bar-chart"></i>
+                            <div class=" col align-self-center">Analytical</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-building"></i>
+                    <div class="col menu-name">Company</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-company-profile.html">
+                            <i class="menu-icon bi bi-easel2"></i>
+                            <div class="col align-self-center menu-name">Company Profile</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-company-user-roles.html">
+                            <i class="menu-icon bi bi-people"></i>
+                            <div class="col align-self-center menu-name">User Roles</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-company-career.html">
+                            <i class="menu-icon bi bi-file-earmark-person"></i>
+                            <div class="col align-self-center menu-name">Career</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-company-help-center.html">
+                            <i class="menu-icon bi bi-life-preserver"></i>
+                            <div class="col align-self-center menu-name">Help Center</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-company-contact-us.html">
+                            <i class="menu-icon bi bi-envelope"></i>
+                            <div class="col align-self-center menu-name">Contact us</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-question-circle"></i>
+                    <div class="col menu-name">Forum</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-forum.html">
+                            <i class="menu-icon bi bi-question-circle"></i>
+                            <div class="col align-self-center menu-name">Forum</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-forum-details.html">
+                            <i class="menu-icon bi bi-people"></i>
+                            <div class="col align-self-center menu-name">Forum Details</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button">
+                    <i class="menu-icon bi bi-window-stack"></i>
+                    <div class="col menu-name">Supportive Pages</div>
+                </a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-login.html" target="_blank">
+                            <i class="menu-icon bi bi-person"></i>
+                            <div class="col align-self-center menu-name">Sign in</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-signup.html" target="_blank">
+                            <i class="menu-icon bi bi-person-plus"></i>
+                            <div class="col align-self-center menu-name">Sign up</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-forgot-password.html" target="_blank">
+                            <i class="menu-icon bi bi-key"></i>
+                            <div class="col align-self-center menu-name">Forgot Password</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-change-password.html" target="_blank">
+                            <i class="menu-icon bi bi-key"></i>
+                            <div class="col align-self-center menu-name">Change Password</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-maintenance.html" target="_blank">
+                            <i class="menu-icon bi bi-gear"></i>
+                            <div class="col align-self-center menu-name">Maintenance</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-comingsoon.html" target="_blank">
+                            <i class="menu-icon bi bi-alarm"></i>
+                            <div class="col align-self-center menu-name">Coming soon</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-page-not-found-2.html">
+                            <i class="menu-icon bi bi-exclamation-circle"></i>
+                            <div class="col align-self-center menu-name">Error</div>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-page-not-found-1.html">
+                            <i class="menu-icon bi bi-exclamation-circle"></i>
+                            <div class="col align-self-center menu-name">404 Error</div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="adminux-onboarding.html" target="_blank">
+                            <i class="menu-icon bi bi-emoji-smile"></i>
+                            <div class="col align-self-center menu-name">Onboarding</div>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a href="adminux-personalization.html" class="nav-link">
+                    <i class="menu-icon bi bi-palette h4"></i>
+                    <span class="menu-name">Personalize <small class="fs-12">❤️</small></span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="components.html">
+                    <i class="menu-icon bi bi-cpu"></i>
+                    <span class="menu-name">Components</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="documentation.html">
+                    <i class="menu-icon bi bi-journal-code"></i>
+                    <div class="col menu-name">Documentation</div>
+                </a>
+            </li>
+        </ul>
+
+        <!-- applications -->
+        <div class="px-3 not-iconic">
+            <div class="row gx-3 gx-lg-4">
+                <div class="col align-self-center menu-name">
+                    <h6>Applications</h6>
+                </div>
+                <div class="col-auto">
+                    <div class="dropdown">
+                        <a class="no-caret dropdown-toggle  btn btn-link btn-square" id="sidebaredits" data-bs-display="display" data-bs-toggle="dropdown" role="button" aria-expanded="false">
+                            <i class="bi bi-sliders"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-dontclose mt-2 width-200" aria-labelledby="sidebaredits">
+                            <ul class="list-group border-0 bg-none">
+                                <li class="list-group-item">
+                                    <div class="row gx-3 gx-lg-4">
+                                        <div class="col menu-name">Email</div>
+                                        <div class="col-auto pe-0">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="sidebaredits1" checked="">
+                                                <label class="form-check-label" for="sidebaredits1"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row gx-3 gx-lg-4">
+                                        <div class="col menu-name">Explorer</div>
+                                        <div class="col-auto pe-0">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="sidebaredits2" checked="">
+                                                <label class="form-check-label" for="sidebaredits2"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row gx-3 gx-lg-4">
+                                        <div class="col menu-name">Calendar</div>
+                                        <div class="col-auto pe-0">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="sidebaredits3" checked="">
+                                                <label class="form-check-label" for="sidebaredits3"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row gx-3 gx-lg-4">
+                                        <div class="col menu-name">Chat</div>
+                                        <div class="col-auto pe-0">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="sidebaredits4" checked="">
+                                                <label class="form-check-label" for="sidebaredits4"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item">
+                                    <div class="row gx-3 gx-lg-4">
+                                        <div class="col menu-name">Support</div>
+                                        <div class="col-auto pe-0">
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" role="switch" id="sidebaredits5">
+                                                <label class="form-check-label" for="sidebaredits5"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ul class="nav flex-column menu-active-line">
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-email.html">
+                    <i class="menu-icon bi bi-envelope"></i>
+                    <div class="col menu-name">Email</div>
+                    <div class="col-auto align-self-center not-iconic">
+                        <figure class="avatar avatar-20 coverimg rounded-circle">
+                            <img src="assets/img/adminuiux/user-2.jpg" alt="" style="display: none;">
+                        </figure>
+                        <figure class="avatar avatar-20 coverimg rounded-circle">
+                            <img src="assets/img/adminuiux/user-3.jpg" alt="" style="display: none;">
+                        </figure>
+                        <figure class="avatar avatar-20 bg-theme-1-subtle rounded-circle">
+                            <small class="fs-10 vm">9+</small>
+                        </figure>
+                    </div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-explorer.html">
+                    <i class="menu-icon bi bi-folder position-relative">
+                        <span class="position-absolute top-0 end-100 p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">New alerts</span>
+                        </span>
+                    </i>
+                    <div class="col menu-name">Explorer</div>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="adminux-calendar.html">
+                    <i class="menu-icon bi bi-calendar-event"></i>
+                    <div class="col menu-name">Calendar</div>
+                    <div class="col-auto not-iconic">
+                        <i class="bi bi-calendar-event fs-10 vm text-white avatar avatar-20 rounded-circle bg-theme-1 text-center "></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+        <div class=" mt-auto "></div>
+
+        <!-- chat -->
+        <ul class="nav flex-column menu-active-line mb-2">
+            <li class="nav-item">
+                <a href="adminux-chat-message.html" class="nav-link">
+                    <div class="col-auto">
+                        <div class="avatar avatar-30 coverimg rounded d-block align-top">
+                            <img src="assets/img/adminuiux/user-2.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="col px-2 menu-name text-start not-iconic maxwidth-dynamic" style="--mw-dynamic: calc(100% - 55px)">
+                        <!-- limit name character-->
+                        <p class="mb-0 fs-14 lh-20">Zoory Sen</p>
+                        <p class="opacity-75 fs-12 text-truncated">Relationship Manager</p>
+                    </div>
+                    <div class="col-auto not-iconic">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                </a>
+            </li>
+        </ul>
+
+        <div class="px-3 not-iconic">
+            <div class="card adminuiux-card bg-theme-l-gradient mb-3">
+                <div class="card-body">
+                    <div class="row gx-3 mb-3">
+                        <div class="col">
+                            <p class="mb-0"><i class="bi bi-basket me-1 "></i> Free Plan</p>
+                        </div>
+                        <div class="col-auto">
+                            <p class="small opacity-75">4 days left</p>
+                        </div>
+                    </div>
+                    <div class="progress height-dynamic bg-white-opacity mb-3" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="--h-dynamic:5px">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" style="width: 45%"></div>
+                    </div>
+                    <a href="adminux-subscription-plans.html" class="btn btn-sm btn-accent">Upgrade <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- quick links -->
+        <div class="px-3 not-iconic">
+            <div class="row gx-2">
+                <div class="col-12 d-flex justify-content-between">
+                    <a href="adminux-dashboard.html" class="btn btn-square btn-link">
+                        <span class="position-relative">
+                            <i data-feather="heart"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-success rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                    <a href="adminux-social-dashboard.html" class="btn btn-square btn-link">
+                        <span class="position-relative">
+                            <i data-feather="calendar"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle p-1 bg-warning rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </span>
+                    </a>
+                    <a href="adminux-email.html" class="btn btn-square btn-link">
+                        <i data-feather="inbox"></i>
+                    </a>
+                    <a href="adminux-company-help-center.html" class="btn btn-square btn-link">
+                        <i data-feather="help-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+                        <main class="adminuiux-content has-sidebar" onclick="contentClick()">
+
+                            <!-- page title -->
+                            <div class="bg-theme-1-subtle py-3">
+                                <div class="container">
+                                    <div class="row align-items-center page-title">
+                                        <div class="col col-sm mb-3 mb-sm-0 order-1">
+                                            <h5 class="mb-1">Chat Messages</h5>
+                                            <nav aria-label="breadcrumb" class="breadcrumb-theme rounded">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item bi"><a href="adminux-dashboard.html"><i class="bi bi-house-door me-2"></i> GoTRI</a></li>
+                                                    <li class="breadcrumb-item bi active" aria-current="page"> Chat Messages</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+
+                                        <div class="col-auto ps-0 position-relative order-2 order-sm-3 mb-3 mb-sm-0">
+                                            <div class="dropdown d-inline-block">
+                                                <a class="btn btn-link btn-square no-caret dropdown-toggle" href="#" role="button" id="filterintitle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+                                                    <i class="bi bi-filter"></i>
+                                                </a>
+                                                <div class="dropdown-menu width-300" aria-labelledby="filterintitle">
+                                                    <div class="p-1 mb-2">
+                                                        <div class="input-group input-group-md rounded" style="--mw-dynamic:232px">
+                                                            <span class="input-group-text text-theme-1"><i class="bi bi-box"></i></span>
+                                                            <select class="form-control choices" id="titltfilterlist" multiple>
+                                                                <option value="San Francisco">San Francisco</option>
+                                                                <option value="New York">New York</option>
+                                                                <option value="London">London</option>
+                                                                <option value="Chicago">Chicago</option>
+                                                                <option value="India" selected="">India</option>
+                                                                <option value="Sydney">Sydney</option>
+                                                                <option value="Seattle">Seattle</option>
+                                                                <option value="Los Angeles">Los Angeles</option>
+                                                                <option value="Indonesia">Indonesia</option>
+                                                                <option value="Los Angeles">Los Angeles</option>
+                                                                <option value="Chicago">Chicago</option>
+                                                                <option value="India">India</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="invalid-feedback">You have already selected maximum option allowed. (This is Configurable)</div>
+                                                    </div>
+                                                    <div class="p-1">
+                                                        <h6 class="mb-0">Orders:</h6>
+                                                        <p class="text-secondary small">1256 orders last week</p>
+                                                    </div>
+                                                    <ul class="list-group list-group-flush bg-transparent border-0 mb-2">
+                                                        <li class="list-group-item">
+                                                            <div class="row gx-3 gx-lg-4">
+                                                                <div class="col">Online Orders</div>
+                                                                <div class="col-auto">
+                                                                    <div class="form-check form-switch">
+                                                                        <input class="form-check-input" type="checkbox" role="switch" id="titleswitch1">
+                                                                        <label class="form-check-label" for="titleswitch1"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="list-group-item">
+                                                            <div class="row gx-3 gx-lg-4">
+                                                                <div class="col">Offline Orders</div>
+                                                                <div class="col-auto">
+                                                                    <div class="form-check form-switch">
+                                                                        <input class="form-check-input" type="checkbox" role="switch" id="titleswitch2" checked="">
+                                                                        <label class="form-check-label" for="titleswitch2"></label>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                    <div class="p-1">
+                                                        <div class="row gx-3 gx-lg-4">
+                                                            <div class="col"><button class="btn btn-link theme-red">Cancel</button></div>
+                                                            <div class="col-auto">
+                                                                <button class="btn btn-theme">Save</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <a href="adminux-company-help-center.html" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top" id="stylise">
+                                                <i class="bi bi-life-preserver"></i>
+                                            </a>
+                                            <a href="https://1.envato.market/RjkDb" target="_blank" class="btn btn-link btn-square" data-bs-toggle="tooltip" data-bs-placement="top">
+                                                <span class="bi bi-basket position-relative">
+                                                    <span class="position-absolute top-0 start-100 p-1 bg-danger border border-light rounded-circle">
+                                                        <span class="visually-hidden">New alerts</span>
+                                                    </span>
+                                                </span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- content -->
+                            <div class="container mt-3 mt-lg-4" id="main-content">
+                                <div class="inner-sidebar-wrap overflow-visible">
+                                    <div class="inner-sidebar py-0 height-dynamic bg-none overflow-visible" style="--h-dynamic: calc(100vh - 250px)">
+                                        <div class="card adminuiux-card overflow-hidden h-100">
+                                            <div class="card-header ">
+                                                <div class="row gx-3 align-items-center">
+                                                    <div class="col-auto d-block d-lg-none"><button class="btn btn-link btn-square innersidebar-btn" onclick="innersidebar()"><i class="bi bi-layout-sidebar h5 align-middle"></i></button></div>
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <input class="form-control border-0" placeholder="Search contact... " value="">
+                                                            <div class="dropdown input-group-text border-0 p-0">
+                                                                <button class="btn btn-square btn-link caret-none" type="button" id="statuschat" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                                                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="statuschat" style="">
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><span class="align-middle me-1 bg-success rounded-circle d-inline-block p-1"></span> Online</a></li>
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><span class="align-middle me-1 bg-warning rounded-circle d-inline-block p-1"></span> Away</a></li>
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><span class="align-middle me-1 bg-danger rounded-circle d-inline-block p-1"></span> Offline</a></li>
+                                                                    <li><a class="dropdown-item" href="javascript:void(0)"><span class="align-middle me-1 bg-secondary rounded-circle d-inline-block p-1"></span> Disabled</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-body overflow-y-auto p-1">
+                                                <ul class="list-group adminuiux-list-group list-group-flush chat-list-contacts bg-none rounded-0">
+                                                    <li class="list-group-item active px-2">
+                                                        <div class="row flex-nowrap">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                    <img src="assets/img/adminuiux/user-7.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">UX Design Group</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item new px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle bg-theme-1"><span class="h6 align-middle">JM</span></figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Mr. Jack Mario</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item new px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                    <img src="assets/img/adminuiux/user-3.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Roberto Carlos</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all text-info"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                    <img src="assets/img/adminuiux/user-2.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">The Adminuiux</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all text-success"></i> 2 days</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle bg-warning text-white"><span class="h6 align-middle">JC</span></figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Ms. Jully CTO</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all"></i> 4 days</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2" data-bs-toggle="modal" data-bs-target="#chatmodalwindow">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle bg-success text-white"><span class="h6 align-middle">JC</span></figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Aswatthma D-Plan</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check"></i> 1 mo</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle bg-theme-1">
+                                                                    <img src="assets/img/adminuiux/user-1.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Adminuiux Support</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Thank you for connecting</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle bg-theme-1"><span class="h6 align-middle">JM</span></figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Mr. Jack Mario</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                    <img src="assets/img/adminuiux/user-4.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Rubby Carlos</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all text-info"></i> 2:00 am</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                    <img src="assets/img/adminuiux/user-1.jpg" alt="">
+                                                                </figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">The Adminuiux</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all text-success"></i> 2 days</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="list-group-item px-2">
+                                                        <div class="row gx-3">
+                                                            <div class="col-auto">
+                                                                <figure class="avatar avatar-40 rounded-circle bg-warning text-white"><span class="h6 align-middle">JC</span></figure>
+                                                            </div>
+                                                            <div class="col-9 align-self-center ps-0">
+                                                                <div class="row g-0">
+                                                                    <div class="col-8">
+                                                                        <p class="text-truncate mb-0">Ms. Jully CTO</p>
+                                                                    </div>
+                                                                    <div class="col-4 text-end"><small class="opacity-50 fs-10 mb-1"><i class="bi bi-check-all"></i> 4 days</small></div>
+                                                                </div>
+                                                                <p class="opacity-75 small text-truncate">Spread love and spread this template</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="inner-sidebar-content h-100 overflow-visible">
+                                        <div class="row gx-3 h-100 mx-0">
+                                            <div class="col-12 col-md-6 col-lg-12 col-xl-7 col-xxl-8 height-dynamic mb-4 mb-xl-0" style="--h-dynamic: calc(100vh - 250px)">
+                                                <div class="card adminuiux-card h-100 mb-3">
+                                                    <div class="card-header pb-0">
+                                                        <div class="row align-items-center gx-2 mb-3">
+                                                            <div class="col-auto d-block d-lg-none"><button class="btn btn-link btn-square innersidebar-btn" onclick="innersidebar()"><i class="bi bi-layout-sidebar h5 align-middle"></i></button></div>
+                                                            <div class="col-auto">
+                                                                <div class="row align-items-center gx-2 gx-lg-3">
+                                                                    <div class="col-auto">
+                                                                        <figure class="avatar avatar-40 coverimg rounded">
+                                                                            <img src="assets/img/adminuiux/user-3.jpg" alt="">
+                                                                        </figure>
+                                                                    </div>
+                                                                    <div class="col align-self-center">
+                                                                        <h6 class="mb-0"><span class="position-relative">UX Design Group <span class="position-absolute top-50 start-100 translate-middle p-1 bg-success rounded-circle mx-2"><span class="visually-hidden">New alerts</span></span></span></h6>
+                                                                        <p class="text-secondary small">35 members, 10 online</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-auto"><button type="button" class="btn btn-link btn-square text-success" data-bs-toggle="modal" data-bs-target="#callmodal"><i class="bi bi-camera-video text-success"></i></button></div>
+                                                            <div class="col"></div>
+                                                            <div class="col-auto"><button class="btn btn-link btn-square" data-bs-toggle="collapse" data-bs-target="#searchchat" aria-expanded="false" aria-controls="searchchat"><i class="bi bi-search"></i></button></div>
+                                                            <div class="col-auto">
+                                                                <div class="dropdown"><button class="btn btn-square btn-link caret-none" type="button" id="statuschat2" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false"><i class="bi bi-three-dots-vertical"></i></button>
+                                                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="statuschat2" style="">
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Clear Chat</a></li>
+                                                                        <li><a class="dropdown-item" href="javascript:void(0)">Delete</a></li>
+                                                                        <li><a class="dropdown-item theme-red" href="javascript:void(0)">Report</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="collapse" id="searchchat">
+                                                            <div class="d-block pb-3">
+                                                                <input type="search" class="form-control d-block" placeholder="Search in chat... " value="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="card-body overflow-y-auto chat-list">
+                                                        <div class="row gx-0 left-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">
+                                                                            <p class="small mb-2"><a href="#" class="style-none">Alex Smith</a></p>
+                                                                            <p>Hi!</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <p class="text-secondary small time"><i class="bi bi-check"></i> 9:00 pm</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin right-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">Hi!<br>Yes please tell us your query.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 text-end">
+                                                                <p class="text-secondary small time"><i class="bi bi-check"></i> 9:10 pm</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center text-center">
+                                                            <div class="col-auto text-center">
+                                                                <div class="alert alert-light mx-auto small px-2 py-0 mb-3">26 November 2025</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin left-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">
+                                                                            <p class="small mb-2"><a href="#" class="style-none">Mr. Jack Mario</a></p>Adminuiux is amazing and we thank you. How can we buy?
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin right-chat first">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">
+                                                                            <div class="position-relative mb-0 d-block">
+                                                                                <div class="position-absolute end-0 top-0">
+                                                                                    <button class="btn btn-square btn-theme m-2"><i class="bi bi-download"></i></button>
+                                                                                </div>
+                                                                                <img src="assets/img/adminuiux/image-1.jpg" alt="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin right-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">Thank you too. You can buy it from preview page and click on buy now.</div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 text-end">
+                                                                <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center text-center">
+                                                            <div class="col-auto text-center">
+                                                                <div class="alert alert-light mx-auto small px-2 py-0 mb-3">27 November 2024</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin left-chat first">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">
+                                                                            <p class="small mb-2"><a href="#" class="style-none">Ms. Jully CTO</a></p>
+                                                                            <div class="position-relative figure"><video src="https://adminuiux.com/adminuiux/adminuiux.mp4" controls="" preload="none"></video></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin left-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">We also love this small presentation.</div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12">
+                                                                    <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-margin right-chat">
+                                                            <div class="col-12">
+                                                                <div class="chat-block">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col">
+                                                                            <p>Ohh... Thats great. Adminuiux is HTML template can be used in various business domains like SAAS, CRM, Content Management, Manufacturing, inventory, IT, administration etc.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12 text-end">
+                                                                <p class="text-secondary small time"><i class="bi bi-check-all text-primary"></i> 8:00 pm</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-footer bg-none border-top">
+                                                        <div class="input-group">
+                                                            <button class="btn btn-square btn-link border"><i class="bi bi-emoji-smile"></i></button>
+                                                            <button class="btn btn-square btn-link border"><i class="bi bi-paperclip"></i></button>
+                                                            <input class="form-control bg-none" placeholder="Type your message... " value="">
+                                                            <button class="btn btn-square btn-link border" type="button"><i class="bi bi-send"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-md-6 col-lg-12 col-xl-5 col-xxl-4">
+                                                <div class="card adminuiux-card mb-3 mb-lg-4">
+                                                    <div class="card-header">
+                                                        <h6>Media Details</h6>
+                                                    </div>
+                                                    <div class="card-body p-1">
+                                                        <div class="accordion adminuiux-accordion" id="detailaccord">
+                                                            <div class="accordion-item bg-none">
+                                                                <p class="accordion-header">
+                                                                    <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#detail1" aria-expanded="false" aria-controls="detail1">
+                                                                        <i class="bi bi-image me-2"></i> 365 Photos</button>
+                                                                </p>
+                                                                <div id="detail1" class="accordion-collapse collapsed collapse bg-none" data-bs-parent="#detailaccord">
+                                                                    <div class="accordion-body p-3">
+                                                                        <div class="swiper swipernav">
+                                                                            <div class="swiper-wrapper">
+                                                                                <div class="swiper-slide w-auto">
+                                                                                    <figure class="avatar avatar-80 coverimg rounded">
+                                                                                        <img src="assets/img/adminuiux/story-1.jpg" alt="">
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide w-auto">
+                                                                                    <figure class="avatar avatar-80 coverimg rounded">
+                                                                                        <img src="assets/img/adminuiux/story-2.jpg" alt="">
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide w-auto">
+                                                                                    <figure class="avatar avatar-80 coverimg rounded">
+                                                                                        <img src="assets/img/adminuiux/story-4.jpg" alt="">
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide w-auto">
+                                                                                    <figure class="avatar avatar-80 coverimg rounded">
+                                                                                        <img src="assets/img/adminuiux/story-5.jpg" alt="">
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide w-auto">
+                                                                                    <div class="avatar hegiht-80 width-80 rounded bg-theme-1-subtle text-theme-1 text-center">
+                                                                                        <div class="py-3">
+                                                                                            <p class="h5 mb-0">150+</p>
+                                                                                            <p class="opacity-75 small">More files</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item bg-none">
+                                                                <p class="accordion-header">
+                                                                    <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#detail2" aria-expanded="false" aria-controls="detail2">
+                                                                        <i class="bi bi-camera-reels me-2"></i> 235 Videos</button>
+                                                                </p>
+                                                                <div id="detail2" class="accordion-collapse collapse bg-none overflow-hidden" data-bs-parent="#detailaccord">
+                                                                    <div class="accordion-body p-3">
+                                                                        <div class="swiper swipernav swiper-initialized swiper-horizontal overflow-visible">
+                                                                            <div class="swiper-wrapper" style="transition-duration: 0ms; transition-delay: 0ms;">
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex justify-content-center align-items-center">
+                                                                                        <img src="assets/img/adminuiux/server-1.jpg" alt="">
+                                                                                        <i class="bi bi-play text-white fs-4 rounded-circle avatar avatar-40 bg-theme-1 theme-red d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex justify-content-center align-items-center">
+                                                                                        <img src="assets/img/adminuiux/server-2.jpg" alt="">
+                                                                                        <i class="bi bi-play text-white fs-4 rounded-circle avatar avatar-40 bg-theme-1 theme-red d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex justify-content-center align-items-center">
+                                                                                        <img src="assets/img/adminuiux/server-3.jpg" alt="">
+                                                                                        <i class="bi bi-play text-white fs-4 rounded-circle avatar avatar-40 bg-theme-1 theme-red d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex justify-content-center align-items-center">
+                                                                                        <img src="assets/img/adminuiux/story-5.jpg" alt="">
+                                                                                        <i class="bi bi-play text-white fs-4 rounded-circle avatar avatar-40 bg-theme-1 theme-red d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <div class="bg-theme-1-subtle text-theme-1 height-80 w-100 rounded text-center">
+                                                                                        <div class="py-3">
+                                                                                            <p class="h5 mb-0">150+</p>
+                                                                                            <p class="opacity-75 small">More files</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item bg-none">
+                                                                <p class="accordion-header">
+                                                                    <button class="accordion-button p-2 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#detail3" aria-expanded="false" aria-controls="detail3">
+                                                                        <i class="bi bi-globe me-2"></i> 11 Links</button>
+                                                                </p>
+                                                                <div id="detail3" class="accordion-collapse collapse bg-none" data-bs-parent="#detailaccord">
+                                                                    <div class="accordion-body p-3">
+                                                                        <p>
+                                                                            <a href="#" class="badge badge-lg badge-light text-bg-theme-1 me-1 mb-1">Youtube Channel <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                                                            <a href="#" class="badge badge-lg badge-light text-bg-theme-1 me-1 mb-1">adminuiux.com <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                                                            <a href="#" class="badge badge-lg badge-light text-bg-theme-1 me-1 mb-1">best mobile template <i class="bi bi-box-arrow-up-right ms-1"></i></a>
+                                                                            <a href="#" class="badge badge-lg badge-light text-bg-theme-1 me-1 mb-1">Read to care <i class="bi bi-box-arrow-up-right"></i></a>
+                                                                            <a href="#" class="badge badge-lg badge-light text-bg-theme-1 me-1 mb-1">6+ more..</a>
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="accordion-item bg-none">
+                                                                <p class="accordion-header">
+                                                                    <button class="accordion-button collapsed p-2" type="button" data-bs-toggle="collapse" data-bs-target="#detail4" aria-expanded="false" aria-controls="detail4">
+                                                                        <i class="bi bi-music-note-beamed me-2"></i> 12 Music Files</button>
+                                                                </p>
+                                                                <div id="detail4" class="accordion-collapse collapse bg-none" data-bs-parent="#detailaccord">
+                                                                    <div class="accordion-body p-3">
+                                                                        <div class="swiper swipernav swiper-initialized swiper-horizontal">
+                                                                            <div class="swiper-wrapper" style="transition-duration: 0ms; transition-delay: 0ms;">
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex align-items-center justify-content-center text-center">
+                                                                                        <img src="assets/img/adminuiux/story-6.jpg" alt="">
+                                                                                        <i class="bi bi-music-note-beamed text-white fs-5 rounded-circle avatar avatar-40 bg-theme-1 theme-yellow d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex align-items-center justify-content-center text-center">
+                                                                                        <img src="assets/img/adminuiux/story-3.jpg" alt="">
+                                                                                        <i class="bi bi-music-note-beamed text-white fs-5 rounded-circle avatar avatar-40 bg-theme-1 theme-yellow d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex align-items-center justify-content-center text-center">
+                                                                                        <img src="assets/img/adminuiux/story-1.jpg" alt="">
+                                                                                        <i class="bi bi-music-note-beamed text-white fs-5 rounded-circle avatar avatar-40 bg-theme-1 theme-yellow d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <figure class="coverimg height-80 w-100 rounded d-flex align-items-center justify-content-center text-center">
+                                                                                        <img src="assets/img/adminuiux/server-1.jpg" alt="">
+                                                                                        <i class="bi bi-music-note-beamed text-white fs-5 rounded-circle avatar avatar-40 bg-theme-1 theme-yellow d-block mx-auto"></i>
+                                                                                    </figure>
+                                                                                </div>
+                                                                                <div class="swiper-slide width-100">
+                                                                                    <div class="bg-theme-1-subtle text-theme-1 height-80 w-100 rounded text-center">
+                                                                                        <div class="py-3">
+                                                                                            <p class="h5 mb-0">150+</p>
+                                                                                            <p class="opacity-75 small">More files</p>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="card adminuiux-card mb-3 mb-lg-4">
+                                                    <div class="card-header">
+                                                        <h6>23 Team Members</h6>
+                                                    </div>
+                                                    <div class="card-body p-1">
+                                                        <div class="overflow-y-auto height-dynamic" style="--h-dynamic: 226px">
+                                                            <ul class="list-group adminuiux-list-group list-group-flush chat-list-contacts bg-none rounded-0">
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                                <img src="assets/img/adminuiux/user-1.jpg" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">The Adminuiux</p>
+                                                                            <p class="small text-secondary text-truncate">Admin, admin@tstgmail.com</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 rounded-circle bg-warning text-white"><span class="h6 align-middle">JC</span></figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Ms. Jully CTO</p>
+                                                                            <p class="small text-secondary text-truncate">admin, +56598511A4562</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item" data-bs-toggle="modal" data-bs-target="#chatmodalwindow">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 rounded-circle bg-success text-white"><span class="h6 align-middle">JC</span></figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Aswatthma D-Plan</p>
+                                                                            <p class="small text-secondary text-truncate">+3698550015</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 coverimg rounded-circle bg-theme-1">
+                                                                                <img src="assets/img/adminuiux/user-2.jpg" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Adminuiux Support</p>
+                                                                            <p class="small text-secondary text-truncate">support@tsestmai.com</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 rounded-circle bg-theme-1"><span class="h6 align-middle">JM</span></figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Mr. Jack Mario</p>
+                                                                            <p class="small text-secondary text-truncate">jackma@gmailtest.com</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                                <img src="assets/img/adminuiux/user-3.jpg" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Rubby Carlos</p>
+                                                                            <p class="small text-secondary text-truncate">+79946469852A00</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 coverimg rounded-circle">
+                                                                                <img src="assets/img/adminuiux/user-4.jpg" alt="">
+                                                                            </figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">The Adminuiux</p>
+                                                                            <p class="small text-secondary text-truncate">hello@adminuiux.co</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <li class="list-group-item">
+                                                                    <div class="row gx-3">
+                                                                        <div class="col-auto">
+                                                                            <figure class="avatar avatar-40 rounded-circle bg-warning text-white"><span class="h6 align-middle">JC</span></figure>
+                                                                        </div>
+                                                                        <div class="col-9 align-self-center ps-0">
+                                                                            <p class="text-truncate mb-0">Ms. Jully CTO</p>
+                                                                            <p class="small text-secondary text-truncate">+9589621510A00</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </main>
+                </div>
+
+                <!-- notification -->
+                <div class="offcanvas offcanvas-end maxwidth-300" tabindex="-1" id="view-notification" data-bs-scroll="true" data-bs-backdrop="false">
+    <div class="offcanvas-header border-bottom">
+        <div class="flex-grow-1">
+            <h6 class="mb-0">Notifications</h6>
+            <p class="text-secondary">6 new updates</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="small text-center px-3 py-2 bg-theme-1-subtle text-theme-1 border-bottom">
+        <div class="input-group">
+            <input type="text" class="form-control daterangepickers">
+            <span class="input-group-text text-secondary">
+                <i class="bi bi-calendar-week"></i>
+            </span>
+        </div>
+    </div>
+    <div class="offcanvas-body">
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-30 coverimg rounded-circle">
+                            <img src="assets/img/adminuiux/user-2.jpg" alt="">
+                        </figure>
+                    </div>
+                    <div class="col">
+                        <p class="small mb-2"><a href="adminux-profile-professional.html" class="text-theme-1 style-none">Alex Smith</a>, <a href="adminux-profile-professional.html" class="text-theme-1 style-none">John McMillan</a> and <span class="fw-medium">36 others</span> are also ordered from same website</p>
+
+                        <div class="row gx-3 align-items-center">
+                            <div class="col">
+                                <p class="text-secondary small">2:14 pm</p>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-30 rounded-circle bg-theme-1 border border-theme-1">
+                            <p class="h6 fw-medium">JM</p>
+                        </figure>
+                    </div>
+                    <div class="col">
+                        <p class="small mb-2"><a href="adminux-profile-professional.html" class="text-theme-1 style-none">Jack Mario</a> commented: "This one is most usable design with great user experience. w..."</p>
+
+                        <div class="row gx-3 align-items-center">
+                            <div class="col">
+                                <p class="text-secondary small">2 days ago</p>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="alert alert-warning mb-2">
+            <div class="row gx-3">
+                <div class="col-auto">
+                    <figure class="avatar avatar-30 rounded-circle bg-warning text-white">
+                        <i class="bi bi-bell"></i>
+                    </figure>
+                </div>
+                <div class="col">
+                    <p class="small mb-2">Your subscription going to expire soon. Please <a href="adminux-subscription.html">upgrade</a> to get service interrupt free.</p>
+
+                    <div class="row gx-3 align-items-center">
+                        <div class="col">
+                            <p class="text-secondary small">4 days ago</p>
+                        </div>
+                        <div class="col-auto">
+                            <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-30 coverimg rounded-circle">
+                            <img src="assets/img/adminuiux/user-4.jpg" alt="">
+                        </figure>
+                    </div>
+                    <div class="col">
+                        <p class="small mb-2"><a href="https://www.adminuiux.com/adminuiux/gotri/html/adminux-invoice.html" class="text-theme-1 style-none">Roberto Carlos</a> has requested to send $120.00 money.</p>
+
+                        <div class="row gx-3 align-items-center">
+                            <div class="col">
+                                <p class="text-secondary small">6 days ago</p>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-30 rounded-circle bg-theme-1-subtle text-theme-1 theme-orange">
+                            <i class="bi bi-calendar-event"></i>
+                        </figure>
+                    </div>
+                    <div class="col">
+                        <h6 class="mb-1">Adminuiux: #1 HTML Templates</h6>
+                        <p class="small mb-2">Learning for better user experience on Universal app. development</p>
+                        <div class="avatar-group mb-2">
+                            <figure class="avatar avatar-20 coverimg rounded-circle" data-bs-toggle="tooltip" title="Mickey">
+                                <img src="assets/img/adminuiux/user-3.jpg" alt="" style="display: none;">
+                            </figure>
+                            <figure class="avatar avatar-20 coverimg rounded-circle" data-bs-toggle="tooltip" title="Jacky">
+                                <img src="assets/img/adminuiux/user-4.jpg" alt="">
+                            </figure>
+                            <div class="avatar avatar-20 bg-theme-1 rounded-circle">
+                                <small class="fs-10 vm">9+</small>
+                            </div>
+                            <span class="text-secondary small"> are attending</span>
+                        </div>
+
+                        <div class="row gx-3 align-items-center">
+                            <div class="col">
+                                <p class="text-secondary small">7 days ago</p>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-2">
+            <div class="card-body">
+                <div class="row gx-3">
+                    <div class="col-auto">
+                        <figure class="avatar avatar-30 coverimg rounded-circle">
+                            <img src="assets/img/adminuiux/user-3.jpg" alt="">
+                        </figure>
+                    </div>
+                    <div class="col">
+                        <p class="small mb-2"><a href="adminuiux-profile-professional.html" class="text-theme-1 style-none">The AdminUIUX</a> commented: "Thank you so much for this deep view at Adminuiux..."</p>
+
+                        <div class="row gx-3 align-items-center">
+                            <div class="col">
+                                <p class="text-secondary small">1 year ago</p>
+                            </div>
+                            <div class="col-auto">
+                                <a href="javascript:void(0)" class="btn btn-sm btn-square btn-link theme-red"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    <!-- themes -->
+                    <!-- theming offcanvas-->
+<div class="offcanvas offcanvas-end width-350" tabindex="-1" id="theming" data-bs-scroll="true" data-bs-backdrop="false" aria-labelledby="theminglabel">
+    <div class="offcanvas-header border-bottom">
+        <div>
+            <h5 class="offcanvas-title" id="theminglabel">Personalize</h5>
+            <p class="text-secondary small">Make it more like your own</p>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+
+        <h6 class="offcanvas-title">Colors</h6>
+        <p class="text-secondary small mb-4">Change colors of templates</p>
+
+        <div class="row mb-4 theme-select">
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-blue">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-theme-1 theme-blue"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-indigo">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-indigo"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-purple">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-purple"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-pink">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-pink"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-red">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-red"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-orange">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-orange"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-yellow">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-yellow"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-green">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-green"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-teal">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-teal"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-cyan">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-cyan"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-grey">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-grey"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-brown">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-brown"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-chocolate">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-chocolate"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="theme-black">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-dark"></span>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="offcanvas-title">Backgrounds</h6>
+        <p class="text-secondary small mb-4">Change color for background</p>
+        <div class="row mb-4 theme-background">
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-default">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default"><i class="bi bi-arrow-clockwise"></i></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-white">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-white"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-r-gradient">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-r-gradient"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-1">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-1"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-2">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-2"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-3">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-3"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-4">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-4"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-5">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-5"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-6">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-6"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-7">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-7"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-8">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-8"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-9">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-9"></span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="gradient-box text-center mb-2" data-title="bg-gradient-10">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-gradient-10"></span>
+                </div>
+            </div>
+        </div>
+
+        <h6 class="offcanvas-title">Sidebar Layout</h6>
+        <p class="text-secondary small mb-4">Change sidebar layout style</p>
+
+        <div class="row mb-4 sidebar-layout">
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="adminuiux-sidebar-standard" data-bs-toggle="tooltip" title="None">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default">
+                        <i class="bi bi-arrow-clockwise"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="adminuiux-sidebar-iconic" data-bs-toggle="tooltip" title="Iconic">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default">
+                        <i class="bi bi-bezier h4"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="adminuiux-sidebar-boxed" data-bs-toggle="tooltip" title="Boxed">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default">
+                        <i class="bi bi-box h5"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="select-box text-center mb-2" data-title="adminuiux-sidebar-boxed adminuiux-sidebar-iconic" data-bs-toggle="tooltip" title="Iconic+Boxed">
+                    <span class="avatar avatar-40 rounded-circle mb-2 bg-default">
+                        <i class="bi bi-bounding-box h5"></i>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mb-4">
+            <a href="adminux-personalization.html" class="btn btn-sm btn-outline-theme">More options <i class="bi bi-arrow-right-short"></i></a>
+        </div>
+    </div>
+</div>
+
+                        <!-- footer -->
+                        <div class="pb-ios">
+    <!-- large footer -->
+    <div class="adminuiux-footer has-adminuiux-sidebar mt-auto py-0">
+        <div class="container py-4 py-lg-5">
+            <div class="row gx-3 gx-lg-4">
+                <div class="col-12 col-xxl-4 mb-3 mb-xxl-0">
+                    <a class="style-none d-block mb-3 mb-lg-4" href="#">
+                        <div class="row gx-3 gx-lg-4">
+                            <div class="col-auto"><span class="logo-icon"><img src="assets/img/logo.png" class="width-50" alt=""></span></div>
+                            <div class="col ps-0 align-self-center d-none d-sm-block">
+                                <h4 class="mb-1">GoTRI</h4>
+                                <p class="text-secondary small">Best HTML Template</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <h3 class="mb-3">#1 Creative &amp; Multipurpose HTML Template</h3>
+                    <p class="text-secondary">GoTRI is creative and multipurpose template. You can use it for CRM, Business application, Intranet Application, Portal service and Many more.
+                        It comes with unlimited possibilities and 10+ predefined styles which you can also mix up and create new style. Do support and spread a word for us. </p>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-xxl offset-xl-1 mb-3 mb-md-0">
+                    <h5 class="mb-3">Main Dashboards</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/finance-dashboard.html">Finance</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/network-dashboard.html">Network</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/inventory-dashboard.html">Inventory</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/social-dashboard.html">Social</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/project-dashboard.html">Project</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://www.adminuiux.com/adminuiux/gotri/html/learning-dashboard.html">Learning</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-xxl mb-3 mb-md-0">
+                    <h5 class="mb-3">Creative Pages</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="adminux-calendar.html">Calendar</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="adminux-email.html">Email</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="adminux-explorer.html">Explorer</a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="adminux-company-help-center.html">Need Support <i class="bi bi-heart-fill text-theme-1 theme-red"></i></a>
+                        </li>
+                        <li class="nav-item py-1">
+                            <a class="nav-link px-0" href="https://1.envato.market/RjkDb" target="_blank">Buy Now <i class="bi bi-arrow-up-right-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-4 col-xxl-3">
+                    <h5 class="mb-3">Main office:</h5>
+                    <p class="mb-1"><a href="https://adminuiux.com/" target="_blank">www.adminuiux.com</a></p>
+                    <p class="text-secondary mb-4">Test data 103909 Witamer CR, Niagara Falls, NY 14305, United States</p>
+
+                    <div class="row gx-3 align-items-center mb-3">
+                        <div class="col-auto"><i class="bi bi-clock text-secondary h4"></i></div>
+                        <div class="col text-secondary">0441-215-518625<br><span>Mon - Sat, 9:00 am - 10:00pm</span></div>
+                    </div>
+                    <div class="row gx-3 align-items-center mb-3 mb-lg-4">
+                        <div class="col-auto"><i class="bi bi-telephone text-secondary h4"></i></div>
+                        <div class="col text-secondary">+1-000 000 100000</div>
+                    </div>
+
+                    <ul class="nav ">
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.facebook.com/adminuiux1/" target="_blank">
+                                <i class="bi bi-facebook h5"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://twitter.com/admiinuiux" target="_blank">
+                                <i class="bi bi-twitter h5"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://linkedin.com/company/adminuiux" target="_blank">
+                                <i class="bi bi-linkedin h5"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://www.instagram.com/adminuiux/" target="_blank">
+                                <i class="bi bi-instagram h5"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- standard footer -->
+    <footer class="adminuiux-footer has-adminuiux-sidebar mt-auto">
+        <div class="container">
+            <div class="row gx-3 gx-lg-4">
+                <div class="col-12 col-md col-lg py-2">
+                    <span class="small">Copyright @2025, Creatively designed
+                        <a href="https://adminuiux.com/" target="_blank" class="">GoTRI by Adminuiux</a> on Earth ❤️
+                    </span>
+                </div>
+                <div class="col-12 col-md-auto col-lg-auto align-self-center">
+                    <ul class="nav small">
+                        <li class="nav-item"><a class="nav-link " href="adminux-company-help-center.html">Help</a></li>
+                        <li class="nav-item opacity-50">|</li>
+                        <li class="nav-item"><a class="nav-link " href="https://www.adminuiux.com/adminuiux/gotri/html/terms-of-use.html">Terms of Use</a></li>
+                        <li class="nav-item opacity-50">|</li>
+                        <li class="nav-item"><a class="nav-link " href="https://www.adminuiux.com/adminuiux/gotri/html/privacy-policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- theming action-->
+<div class="position-fixed bottom-0 end-0 mx-2 my-3 z-index-5" id="fixedbuttons">
+    <button class="btn btn-square btn-theme rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#theming" aria-controls="theming"><i class="bi bi-palette"></i></button>
+    <br>
+    <button class="btn btn-theme btn-square mt-2 d-none rounded-circle theme-black" id="backtotop"><i class="bi bi-arrow-up"></i></button>
+</div>
+
+<!-- global script -->
+<script src="assets/js/core/functions.js"></script>
+<script src="assets/js/core/main.js"></script>
+<script src="assets/js/core/responsive.js"></script>
+<script src="assets/js/core/color-scheme.js"></script>
+
+                            <!-- Page Level js -->
+
+    </body>
+
+
+<!-- Mirrored from adminuiux.com/adminuiux/gotri/html/adminux-chat-message.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 06 Jan 2026 19:44:28 GMT -->
+</html>
