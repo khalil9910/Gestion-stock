@@ -32,11 +32,13 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd zip pdo pdo_mysql mbstring xml
 
 # Enable Apache rewrite module
-RUN a2enmod rewrite \
-  && (a2dismod mpm_event mpm_worker || true) \
-  && a2enmod mpm_prefork \
-  && rm -f /etc/apache2/mods-enabled/mpm_event.load /etc/apache2/mods-enabled/mpm_event.conf \
-            /etc/apache2/mods-enabled/mpm_worker.load /etc/apache2/mods-enabled/mpm_worker.conf
+RUN (a2dismod mpm_event mpm_worker mpm_prefork || true) \
+  && rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
+  && a2enmod mpm_prefork rewrite
+
+RUN set -eux; \
+  apache2ctl -M | grep -E 'mpm_(prefork|event|worker)_module' || true; \
+  test "$(apache2ctl -M 2>/dev/null | grep -E -c 'mpm_(prefork|event|worker)_module')" -eq 1
 
 # Set working directory
 WORKDIR /var/www/html
