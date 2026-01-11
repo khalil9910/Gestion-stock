@@ -33,12 +33,12 @@
                     <div class="col-12 mb-auto pt-4"></div>
                     <div class="col-auto">
                         <img src="{{ asset('admin/assets/img/logo-512.png') }}" alt="" class="height-100 mb-3">
-                        <p class="h3 mb-0"><span class="text-gradient">GoTRI</span></p>
-                        <p class="small text-secondary mb-3"><span class="">Admin Dashboard HTML Template</span></p>
+                        <p class="h3 mb-0"><span class="text-gradient">Gestion Stock</span></p>
+                        <p class="small text-secondary mb-3"><span class="">Application de gestion de stock</span></p>
                         <div class="loader6 mb-2 mx-auto" style="border-color: var(--adminuiux-theme-2);"></div>
                     </div>
                     <div class="col-12 mt-auto pb-4">
-                        <p class="text-secondary">Petal of flower being ready to <span class="text-gradient">blossom</span>...</p>
+                        <p class="text-secondary">Chargement de <span class="text-gradient">Gestion Stock</span>...</p>
                     </div>
                 </div>
             </div>
@@ -55,8 +55,8 @@
                         <img data-bs-img="light" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
                         <img data-bs-img="dark" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
                         <div class="">
-                            <span class="h4">Go<span class="fw-bold">TRI</span></span>
-                            <p class="company-tagline">Best HTML template</p>
+                            <span class="h4">Gestion <span class="fw-bold">Stock</span></span>
+                            <p class="company-tagline">Suivi • Vente • Facture • Export</p>
                         </div>
                     </a>
 
