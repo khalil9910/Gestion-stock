@@ -76,4 +76,4 @@ RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cac
 EXPOSE 80
 
 # Start Apache in foreground
-CMD ["/bin/sh", "-lc", "rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf; a2enmod mpm_prefork rewrite >/dev/null 2>&1 || true; apache2ctl -M | grep -E 'mpm_(prefork|event|worker)_module' || true; exec apache2-foreground"]
+CMD ["/bin/sh", "-lc", "rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf; a2enmod mpm_prefork rewrite >/dev/null 2>&1 || true; apache2ctl -M | grep -E 'mpm_(prefork|event|worker)_module' || true; : \"${PORT:=80}\"; sed -ri -e 's/^Listen 80$/Listen '${PORT}'/g' /etc/apache2/ports.conf; sed -ri -e 's/<VirtualHost \\*:80>/<VirtualHost \\*:'${PORT}'>/g' /etc/apache2/sites-available/000-default.conf; exec apache2-foreground"]
