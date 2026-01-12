@@ -74,6 +74,7 @@ Route::middleware(['auth', 'role:admin,employe'])->prefix('ventes')->name('vente
     Route::get('/commandes/{commande}', [CommandeController::class, 'show'])->name('commandes.show');
     Route::get('/commandes/{commande}/facture', [CommandeController::class, 'facture'])->name('commandes.facture');
     Route::get('/commandes/{commande}/facture/pdf', [CommandeController::class, 'facturePdf'])->name('commandes.facture.pdf');
+    Route::post('/commandes/{commande}/send-invoice', [CommandeController::class, 'sendInvoice'])->name('commandes.send_invoice');
 });
 
 require __DIR__.'/auth.php';

@@ -10,6 +10,14 @@
         <div class="col-12">
             <div class="card adminuiux-card mb-3 mb-lg-4">
                 <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success">{{ session('status') }}</div>
+                    @endif
+
+                    @if ($errors->has('email'))
+                        <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                    @endif
+
                     <div class="row gx-3 gx-lg-4">
                         <div class="col-12 col-sm-6 col-lg-3">
                             <div class="border rounded p-3">
@@ -73,6 +81,10 @@
                     <div class="d-flex flex-wrap gap-2 mt-3">
                         <a class="btn btn-link" href="{{ route('ventes.commandes.index') }}">{{ __('Retour liste') }}</a>
                         <a class="btn btn-outline-theme" href="{{ route('ventes.commandes.facture', $commande) }}">{{ __('Facture') }}</a>
+                        <form method="POST" action="{{ route('ventes.commandes.send_invoice', $commande) }}" onsubmit="return confirm('Envoyer la facture par email au client ?');">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-theme">{{ __('Envoyer facture email') }}</button>
+                        </form>
                         <a class="btn btn-theme" href="{{ route('ventes.commandes.edit', $commande) }}">{{ __('Modifier') }}</a>
                         <form method="POST" action="{{ route('ventes.commandes.destroy', $commande) }}" onsubmit="return confirm('Supprimer cette commande ?');">
                             @csrf

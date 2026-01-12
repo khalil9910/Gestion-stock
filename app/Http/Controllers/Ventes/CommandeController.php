@@ -259,4 +259,25 @@ class CommandeController extends Controller
 
         return $pdf->download($filename);
     }
+
+    public function sendInvoice(Commande $commande): RedirectResponse
+    {
+        $commande->loadMissing(['client', 'details.produit']);
+
+        if (! $commande->client?->email) {
+            return back()->withErrors([
+                'email' => 'Email du client manquant.',
+            ]);
+        }
+
+        try {
+            Mail::to($commande->client->email)->send(new CommandeFactureMail($commande));
+        } catch (\Throwable $e) {
+            return back()->withErrors([
+                'email' => "Erreur d'envoi email: ".$e->getMessage(),
+            ]);
+        }
+
+        return back()->with('status', 'Facture envoyée par email.');
+    }
 }
