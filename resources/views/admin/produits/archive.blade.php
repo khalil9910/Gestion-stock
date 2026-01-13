@@ -6,6 +6,12 @@
         </div>
     </x-slot>
 
+    @push('styles')
+        <link href="{{ asset('admin2/assets/libs/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin2/assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('admin2/assets/libs/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
+    @endpush
+
     <div class="card adminuiux-card mb-3 mb-lg-4">
         <div class="card-header">
             <div class="row gx-3 align-items-center">
@@ -21,7 +27,7 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-sm align-middle mb-0">
+                <table id="datatable-buttons" class="table table-sm align-middle mb-0 dt-responsive nowrap w-100">
                     <thead>
                         <tr>
                             <th style="width: 60px">{{ __('Image') }}</th>
@@ -53,7 +59,9 @@
                                 <td class="text-end">
                                     <form class="d-inline" method="POST" action="{{ route('admin.produits.restore', $produit->id) }}" onsubmit="return confirm('Restaurer ce produit ?');">
                                         @csrf
-                                        <button class="btn btn-link btn-sm" type="submit">{{ __('Restore') }}</button>
+                                        <button class="btn btn-link btn-sm" type="submit">
+                                            <i class="bi bi-arrow-counterclockwise me-1"></i>{{ __('Restore') }}
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
@@ -61,10 +69,37 @@
                     </tbody>
                 </table>
             </div>
-
-            <div class="mt-3">
-                {{ $produits->links() }}
-            </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('admin2/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const table = $('#datatable-buttons');
+                if (!table.length) return;
+
+                const dt = table.DataTable({
+                    responsive: true,
+                    pageLength: 10,
+                    lengthChange: true,
+                    order: [[7, 'desc']],
+                    dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
+                        "<'row'<'col-sm-12'tr>>" +
+                        "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>" +
+                        "<'row'<'col-sm-12 col-md-6'B>>",
+                    buttons: ['copy', 'print'],
+                });
+
+                dt.buttons().container().addClass('mt-2');
+            });
+        </script>
+    @endpush
 </x-app-layout>

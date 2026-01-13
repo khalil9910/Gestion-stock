@@ -1,127 +1,90 @@
 <x-guest-layout>
-    <div class="pageloader">
-        <div class="container h-100">
-            <div class="row justify-content-center align-items-center text-center h-100">
-                <div class="col-12 mb-auto pt-4"></div>
-                <div class="col-auto">
-                    <img src="{{ asset('admin/assets/img/logo-512.png') }}" alt="" class="height-100 mb-3">
-                    <p class="h3 mb-0"><span class="text-gradient">Gestion Stock</span></p>
-                    <p class="small text-secondary mb-3"><span class="">Application de gestion de stock</span></p>
-                    <div class="loader6 mb-2 mx-auto" style="border-color: var(--adminuiux-theme-2);"></div>
+    <div class="account-page">
+        <div class="container-fluid p-0">
+            <div class="row align-items-center g-0">
+                <div class="col-xl-5">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card p-3">
+                                <div class="card-body">
+                                    <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
+                                        <div class="mb-4 p-0 text-center">
+                                            <a class="auth-logo" href="{{ url('/') }}">
+                                                <img src="{{ asset('admin2/assets/images/logo-dark.png') }}" alt="logo" class="mx-auto" height="28"/>
+                                            </a>
+                                        </div>
+
+                                        <div class="auth-title-section mb-3 text-center">
+                                            <h3 class="text-dark fs-20 fw-medium mb-2">Create your account</h3>
+                                            <p class="text-dark text-capitalize fs-14 mb-0">Sign up to use {{ config('app.name', 'Gestion Stock') }}.</p>
+                                        </div>
+
+                                        <div class="pt-0">
+                                            <form method="POST" action="{{ route('register') }}" class="my-4">
+                                                @csrf
+
+                                                <div class="form-group mb-3">
+                                                    <label for="username" class="form-label">Name</label>
+                                                    <input class="form-control" name="name" type="text" id="username" value="{{ old('name') }}" required autofocus autocomplete="name" placeholder="Enter your name">
+                                                    @if ($errors->has('name'))
+                                                        <div class="text-danger small mt-1">{{ $errors->first('name') }}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label for="emailaddress" class="form-label">Email address</label>
+                                                    <input class="form-control" type="email" id="emailaddress" name="email" value="{{ old('email') }}" required autocomplete="username" placeholder="Enter your email">
+                                                    @if ($errors->has('email'))
+                                                        <div class="text-danger small mt-1">{{ $errors->first('email') }}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label for="password" class="form-label">Password</label>
+                                                    <input class="form-control" type="password" id="password" name="password" required autocomplete="new-password" placeholder="Enter your password">
+                                                    @if ($errors->has('password'))
+                                                        <div class="text-danger small mt-1">{{ $errors->first('password') }}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group mb-3">
+                                                    <label for="password_confirmation" class="form-label">Confirm password</label>
+                                                    <input class="form-control" type="password" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm your password">
+                                                    @if ($errors->has('password_confirmation'))
+                                                        <div class="text-danger small mt-1">{{ $errors->first('password_confirmation') }}</div>
+                                                    @endif
+                                                </div>
+
+                                                <div class="form-group mb-0 row">
+                                                    <div class="col-12">
+                                                        <div class="d-grid">
+                                                            <button class="btn btn-primary" type="submit">Register</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+
+                                            <div class="text-center text-muted mb-4">
+                                                <p class="mb-0">Already have an account ?<a class="text-primary ms-2 fw-medium" href="{{ route('login') }}">Login here</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-12 mt-auto pb-4">
-                    <p class="text-secondary">Chargement de <span class="text-gradient">Gestion Stock</span>...</p>
+
+                <div class="col-xl-7">
+                    <div class="account-page-bg p-md-5 p-4">
+                        <div class="text-center">
+                            <div class="auth-image">
+                                <img src="{{ asset('admin2/assets/images/auth-images.svg') }}" class="mx-auto img-fluid" alt="images">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <header class="adminuiux-header">
-        <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img data-bs-img="light" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
-                    <img data-bs-img="dark" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
-                    <div class="d-block ps-2">
-                        <span class="h4">Gestion <span class="fw-bold">Stock</span></span>
-                        <p class="company-tagline">Suivi • Vente • Facture • Export</p>
-                    </div>
-                </a>
-                <div class="ms-auto"></div>
-            </div>
-        </nav>
-    </header>
-
-    <div class="adminuiux-wrap">
-        <main class="adminuiux-content">
-            <div class="container-fluid">
-                <div class="row justify-content-center minheight-dynamic" style="--mih-dynamic: calc(100vh - 108px - env(safe-area-inset-bottom) - env(safe-area-inset-top))">
-                    <div class="col-12 col-md-8 col-xl-6">
-                        <div class="row h-100 align-items-center justify-content-center">
-                            <div class="col-12 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box py-3">
-                                <div class="text-center mb-3 mb-lg-4">
-                                    <h1 class="mb-1 text-theme-1">Let's get started&#128077;</h1>
-                                    <p class="text-secondary">Provide your few details</p>
-                                </div>
-
-                                <form method="POST" action="{{ route('register') }}">
-                                    @csrf
-
-                                    <div class="form-floating mb-3">
-                                        <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" value="{{ old('name') }}" required autofocus autocomplete="name">
-                                        <label for="name">Name</label>
-                                        @if ($errors->has('name'))
-                                            <div class="text-danger small mt-1">{{ $errors->first('name') }}</div>
-                                        @endif
-                                    </div>
-
-                                    <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="emailadd" placeholder="Enter email address" name="email" value="{{ old('email') }}" required autocomplete="username">
-                                        <label for="emailadd">Email Address</label>
-                                        @if ($errors->has('email'))
-                                            <div class="text-danger small mt-1">{{ $errors->first('email') }}</div>
-                                        @endif
-                                    </div>
-
-                                    <div class="position-relative">
-                                        <div class="form-floating mb-2 mb-lg-3">
-                                            <input type="password" class="form-control" id="checkstrength" placeholder="Enter your password" name="password" required autocomplete="new-password">
-                                            <label for="checkstrength">Password</label>
-                                            @if ($errors->has('password'))
-                                                <div class="text-danger small mt-1">{{ $errors->first('password') }}</div>
-                                            @endif
-                                        </div>
-                                        <button type="button" class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                    </div>
-
-                                    <div class="position-relative">
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="passwd" placeholder="Confirm your password" name="password_confirmation" required autocomplete="new-password">
-                                            <label for="passwd">Confirm Password</label>
-                                            @if ($errors->has('password_confirmation'))
-                                                <div class="text-danger small mt-1">{{ $errors->first('password_confirmation') }}</div>
-                                            @endif
-                                        </div>
-                                        <button type="button" class="btn btn-square btn-link text-theme-1 position-absolute end-0 top-0 mt-2 me-2">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-lg btn-theme w-100 mb-4">Sign up</button>
-
-                                    <div class="text-center">
-                                        Already have account? <a href="{{ route('login') }}" class="">Login</a> here.
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-md-6 px-0 d-none d-md-block">
-                        <div class="swiper h-100 swipernav">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide bg-theme-1 theme-indigo">
-                                    <div class="coverimg h-100 w-100 top-0 start-0 position-absolute z-index-0 opacity-50">
-                                        <img src="{{ asset('admin/assets/img/background-image/backgorund-image-5.jpg') }}" alt="">
-                                    </div>
-                                    <div class="row gx-0 justify-content-center align-items-center text-center h-100 z-index-1 position-relative">
-                                        <div class="col-11 col-md-8 col-lg-7">
-                                            <h1 class="display-4 mb-4">Créez votre compte</h1>
-                                            <p>Accédez à la gestion des produits, du stock, des ventes et des factures.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    @push('scripts')
-        <script src="{{ asset('admin/assets/js/adminuiux/adminux-auth.js') }}"></script>
-    @endpush
 </x-guest-layout>

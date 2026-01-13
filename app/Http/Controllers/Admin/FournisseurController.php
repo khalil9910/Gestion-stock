@@ -12,7 +12,7 @@ class FournisseurController extends Controller
 {
     public function index(): View
     {
-        $fournisseurs = Fournisseur::query()->orderBy('nom')->paginate(15);
+        $fournisseurs = Fournisseur::query()->orderBy('nom')->get();
 
         return view('admin.fournisseurs.index', compact('fournisseurs'));
     }
@@ -29,7 +29,7 @@ class FournisseurController extends Controller
 
     public function archive(): View
     {
-        $fournisseurs = Fournisseur::onlyTrashed()->orderByDesc('deleted_at')->paginate(15);
+        $fournisseurs = Fournisseur::onlyTrashed()->orderByDesc('deleted_at')->get();
 
         return view('admin.fournisseurs.archive', compact('fournisseurs'));
     }

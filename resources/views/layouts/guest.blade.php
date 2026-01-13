@@ -5,33 +5,43 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>{{ config('app.name', 'Gestion de Stock') }}</title>
 
-        <link rel="icon" type="image/png" href="{{ asset('admin/assets/img/favicon.png') }}">
-        <link rel="preconnect" href="https://fonts.googleapis.com/">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&amp;display=swap" rel="stylesheet">
-        <style>
-            :root {
-                --adminuiux-content-font: "Roboto", sans-serif;
-                --adminuiux-content-font-weight: 400;
-                --adminuiux-title-font: "Inter", sans-serif;
-                --adminuiux-title-font-weight: 500;
-            }
-        </style>
-
-        <script defer src="{{ asset('admin/assets/js/appaebc.js') }}"></script>
-        <script defer src="{{ asset('admin/assets/js/thirdpartyaebc.js') }}"></script>
-        <link href="{{ asset('admin/assets/css/appaebc.css') }}" rel="stylesheet">
+        <link rel="shortcut icon" href="{{ asset('admin2/assets/images/favicon.ico') }}">
+        <link href="{{ asset('admin2/assets/css/app.min.css') }}" rel="stylesheet" type="text/css" id="app-style" />
+        <link href="{{ asset('admin2/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+        @stack('styles')
     </head>
-    <body class="main-bg main-bg-opac adminuiux-header-standard adminuiux-sidebar-standard bg-default adminuiux-header-fill-white adminuiux-sidebar-fill-theme scrollup theme-purple" data-theme="theme-purple" data-sidebarfill="adminuiux-sidebar-fill-theme" data-sidebarlayout="adminuiux-sidebar-standard" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-headerlayout="adminuiux-header-standard" data-bggradient="bg-default" data-headerfill="adminuiux-header-fill-white">
+    <body class="bg-primary-subtle">
         {{ $slot }}
 
-        <script src="{{ asset('admin/assets/js/core/functions.js') }}"></script>
-        <script src="{{ asset('admin/assets/js/core/main.js') }}"></script>
-        <script src="{{ asset('admin/assets/js/core/responsive.js') }}"></script>
-        <script src="{{ asset('admin/assets/js/core/color-scheme.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/jquery/jquery.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/simplebar/simplebar.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/node-waves/waves.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/waypoints/lib/jquery.waypoints.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/jquery.counterup/jquery.counterup.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/libs/feather-icons/feather.min.js') }}"></script>
+        <script src="{{ asset('admin2/assets/js/app.js') }}"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                if (window.feather) {
+                    window.feather.replace();
+                }
+
+                if (window.Waves) {
+                    try {
+                        window.Waves.init();
+                        window.Waves.attach('.btn', ['waves-light']);
+                        window.Waves.attach('.nav-link', ['waves-light']);
+                    } catch (e) {
+                    }
+                }
+            });
+        </script>
 
         @stack('scripts')
     </body>

@@ -1,82 +1,69 @@
 <x-guest-layout>
-    <div class="pageloader">
-        <div class="container h-100">
-            <div class="row justify-content-center align-items-center text-center h-100">
-                <div class="col-12 mb-auto pt-4"></div>
-                <div class="col-auto">
-                    <img src="{{ asset('admin/assets/img/logo-512.png') }}" alt="" class="height-100 mb-3">
-                    <p class="h3 mb-0"><span class="text-gradient">Gestion Stock</span></p>
-                    <p class="small text-secondary mb-3"><span class="">Application de gestion de stock</span></p>
-                    <div class="loader6 mb-2 mx-auto" style="border-color: var(--adminuiux-theme-2);"></div>
-                </div>
-                <div class="col-12 mt-auto pb-4">
-                    <p class="text-secondary">Chargement de <span class="text-gradient">Gestion Stock</span>...</p>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="account-page">
+        <div class="container-fluid p-0">
+            <div class="row align-items-center g-0">
+                <div class="col-xl-5">
+                    <div class="row">
+                        <div class="col-md-8 mx-auto">
+                            <div class="card p-3 mb-0">
+                                <div class="card-body">
+                                    <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
+                                        <div class="mb-4 p-0 text-center">
+                                            <a class="auth-logo" href="{{ url('/') }}">
+                                                <img src="{{ asset('admin2/assets/images/logo-dark.png') }}" alt="logo" class="mx-auto" height="28" />
+                                            </a>
+                                        </div>
 
-    <header class="adminuiux-header">
-        <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <img data-bs-img="light" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
-                    <img data-bs-img="dark" src="{{ asset('admin/assets/img/logo.png') }}" alt="">
-                    <div class="d-block ps-2">
-                        <span class="h4">Gestion <span class="fw-bold">Stock</span></span>
-                        <p class="company-tagline">Suivi • Vente • Facture • Export</p>
-                    </div>
-                </a>
-                <div class="ms-auto"></div>
-            </div>
-        </nav>
-    </header>
+                                        <div class="auth-title-section mb-3 text-center">
+                                            <h3 class="text-dark fs-20 fw-medium mb-2">Verify Email</h3>
+                                            <p class="text-dark text-capitalize fs-14 mb-0">Please verify your email to continue.</p>
+                                        </div>
 
-    <div class="adminuiux-wrap">
-        <main class="adminuiux-content">
-            <div class="container-fluid">
-                <div class="row justify-content-center minheight-dynamic" style="--mih-dynamic: calc(100vh - 108px - env(safe-area-inset-bottom) - env(safe-area-inset-top))">
-                    <div class="col-12 col-md-8 col-xl-6">
-                        <div class="row h-100 align-items-center justify-content-center">
-                            <div class="col-12 col-sm-8 col-md-11 col-xl-11 col-xxl-10 login-box py-3">
-                                <div class="text-center mb-4">
-                                    <h2 class="mb-1 text-theme-1">Verify Email</h2>
-                                    <p class="text-secondary">Please verify your email address to continue</p>
-                                </div>
+                                        <div class="text-muted mb-3">
+                                            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+                                        </div>
 
-                                <div class="text-secondary mb-3">
-                                    {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-                                </div>
+                                        @if (session('status') == 'verification-link-sent')
+                                            <div class="alert alert-success">
+                                                {{ __('A new verification link has been sent to the email address you provided during registration.') }}
+                                            </div>
+                                        @endif
 
-                                @if (session('status') == 'verification-link-sent')
-                                    <div class="alert alert-success">
-                                        {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-                                    </div>
-                                @endif
-
-                                <div class="row gx-3 align-items-center mt-4">
-                                    <div class="col">
-                                        <form method="POST" action="{{ route('verification.send') }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-lg btn-theme w-100">Resend Verification Email</button>
-                                        </form>
-                                    </div>
-                                    <div class="col">
-                                        <form method="POST" action="{{ route('logout') }}">
-                                            @csrf
-                                            <button type="submit" class="btn btn-lg btn-link w-100">Log Out</button>
-                                        </form>
+                                        <div class="row g-2 mt-4">
+                                            <div class="col-12">
+                                                <form method="POST" action="{{ route('verification.send') }}">
+                                                    @csrf
+                                                    <div class="d-grid">
+                                                        <button type="submit" class="btn btn-primary">Resend Verification Email</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="col-12">
+                                                <form method="POST" action="{{ route('logout') }}">
+                                                    @csrf
+                                                    <div class="d-grid">
+                                                        <button type="submit" class="btn btn-light">Log Out</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </main>
-    </div>
 
-    @push('scripts')
-        <script src="{{ asset('admin/assets/js/adminuiux/adminux-auth.js') }}"></script>
-    @endpush
+                <div class="col-xl-7">
+                    <div class="account-page-bg p-md-5 p-4">
+                        <div class="text-center">
+                            <div class="auth-image">
+                                <img src="{{ asset('admin2/assets/images/auth-images.svg') }}" class="mx-auto img-fluid" alt="images">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </x-guest-layout>

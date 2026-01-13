@@ -15,6 +15,70 @@ class DashboardController extends Controller
 {
     public function __invoke(): View
     {
+        $ordersTotal = (int) Commande::query()->count();
+
+        $monthStart = Carbon::now()->startOfMonth();
+        $ordersMonthly = (int) Commande::query()->whereDate('date_commande', '>=', $monthStart->toDateString())->count();
+        $revenueMonthlyTtc = (float) Commande::query()->whereDate('date_commande', '>=', $monthStart->toDateString())->sum('total_ttc');
+
+        $last7Start = Carbon::now()->subDays(6)->startOfDay();
+        $prev7Start = Carbon::now()->subDays(13)->startOfDay();
+
+        $ordersLast7ByDay = Commande::query()
+            ->whereDate('date_commande', '>=', $last7Start->toDateString())
+            ->selectRaw("DATE(date_commande) as d")
+            ->selectRaw('COUNT(*) as c')
+            ->groupBy('d')
+            ->orderBy('d')
+            ->get()
+            ->keyBy('d');
+
+        $ordersPrev7Total = (int) Commande::query()
+            ->whereDate('date_commande', '>=', $prev7Start->toDateString())
+            ->whereDate('date_commande', '<', $last7Start->toDateString())
+            ->count();
+
+        $ordersLast7Total = (int) Commande::query()
+            ->whereDate('date_commande', '>=', $last7Start->toDateString())
+            ->count();
+
+        $ordersTrendPct = $ordersPrev7Total > 0
+            ? (($ordersLast7Total - $ordersPrev7Total) / $ordersPrev7Total) * 100
+            : ($ordersLast7Total > 0 ? 100 : 0);
+
+        $revenueLast7ByDay = Commande::query()
+            ->whereDate('date_commande', '>=', $last7Start->toDateString())
+            ->selectRaw("DATE(date_commande) as d")
+            ->selectRaw('COALESCE(SUM(total_ttc), 0) as s')
+            ->groupBy('d')
+            ->orderBy('d')
+            ->get()
+            ->keyBy('d');
+
+        $revenuePrev7Total = (float) Commande::query()
+            ->whereDate('date_commande', '>=', $prev7Start->toDateString())
+            ->whereDate('date_commande', '<', $last7Start->toDateString())
+            ->sum('total_ttc');
+
+        $revenueLast7Total = (float) Commande::query()
+            ->whereDate('date_commande', '>=', $last7Start->toDateString())
+            ->sum('total_ttc');
+
+        $revenueTrendPct = $revenuePrev7Total > 0
+            ? (($revenueLast7Total - $revenuePrev7Total) / $revenuePrev7Total) * 100
+            : ($revenueLast7Total > 0 ? 100 : 0);
+
+        $ordersSparkLabels = [];
+        $ordersSparkSeries = [];
+        $revenueSparkSeries = [];
+
+        for ($i = 0; $i < 7; $i++) {
+            $d = $last7Start->copy()->addDays($i)->toDateString();
+            $ordersSparkLabels[] = Carbon::parse($d)->format('D');
+            $ordersSparkSeries[] = (int) ($ordersLast7ByDay[$d]->c ?? 0);
+            $revenueSparkSeries[] = (float) ($revenueLast7ByDay[$d]->s ?? 0);
+        }
+
         $stockValue = (float) Stock::query()
             ->join('produits', 'stocks.produit_id', '=', 'produits.id')
             ->selectRaw('COALESCE(SUM(stocks.qte_reelle * produits.prix_achat_ht), 0) as total')
@@ -42,6 +106,9 @@ class DashboardController extends Controller
         $topQuantities = $topVentes->map(fn ($row) => (int) $row->total)->values();
 
         $productsCount = (int) Produit::query()->count();
+
+        $ordersMonthlyPct = $ordersTotal > 0 ? min(100, ($ordersMonthly / $ordersTotal) * 100) : 0;
+        $outOfStockPct = $productsCount > 0 ? min(100, ($rupturesCount / $productsCount) * 100) : 0;
 
         $start = Carbon::now()->startOfMonth()->subMonths(11);
 
@@ -81,7 +148,25 @@ class DashboardController extends Controller
             $monthlyProfitSeries[] = (float) ($monthlyProfit[$ym]->profit ?? 0);
         }
 
+        $radarCount = 6;
+        $radarLabels = array_slice($monthlyLabels, -$radarCount);
+        $radarSales = array_slice($monthlySalesHt, -$radarCount);
+        $radarProfit = array_slice($monthlyProfitSeries, -$radarCount);
+
         return view('dashboard', compact(
+            'ordersTotal',
+            'ordersMonthly',
+            'revenueMonthlyTtc',
+            'ordersTrendPct',
+            'revenueTrendPct',
+            'ordersSparkLabels',
+            'ordersSparkSeries',
+            'revenueSparkSeries',
+            'ordersMonthlyPct',
+            'outOfStockPct',
+            'radarLabels',
+            'radarSales',
+            'radarProfit',
             'stockValue',
             'totalProfit',
             'rupturesCount',

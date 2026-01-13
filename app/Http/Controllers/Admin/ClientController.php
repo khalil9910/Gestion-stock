@@ -12,7 +12,7 @@ class ClientController extends Controller
 {
     public function index(): View
     {
-        $clients = Client::query()->orderBy('nom')->paginate(15);
+        $clients = Client::query()->orderBy('nom')->get();
 
         return view('admin.clients.index', compact('clients'));
     }
@@ -29,7 +29,7 @@ class ClientController extends Controller
 
     public function archive(): View
     {
-        $clients = Client::onlyTrashed()->orderByDesc('deleted_at')->paginate(15);
+        $clients = Client::onlyTrashed()->orderByDesc('deleted_at')->get();
 
         return view('admin.clients.archive', compact('clients'));
     }

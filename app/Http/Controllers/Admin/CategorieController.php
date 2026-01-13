@@ -13,7 +13,7 @@ class CategorieController extends Controller
 {
     public function index(): View
     {
-        $categories = Categorie::query()->orderBy('nom')->paginate(15);
+        $categories = Categorie::query()->orderBy('nom')->get();
 
         return view('admin.categories.index', compact('categories'));
     }
@@ -47,7 +47,7 @@ class CategorieController extends Controller
 
     public function archive(): View
     {
-        $categories = Categorie::onlyTrashed()->orderByDesc('deleted_at')->paginate(15);
+        $categories = Categorie::onlyTrashed()->orderByDesc('deleted_at')->get();
 
         return view('admin.categories.archive', compact('categories'));
     }

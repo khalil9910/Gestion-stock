@@ -14,7 +14,7 @@ class ProduitController extends Controller
 {
     public function index(): View
     {
-        $produits = Produit::query()->with(['categorie', 'stock'])->orderBy('nom')->paginate(15);
+        $produits = Produit::query()->with(['categorie', 'stock'])->orderBy('nom')->get();
 
         return view('admin.produits.index', compact('produits'));
     }
@@ -61,7 +61,7 @@ class ProduitController extends Controller
             ->with(['categorie', 'stock'])
             ->onlyTrashed()
             ->orderByDesc('deleted_at')
-            ->paginate(15);
+            ->get();
 
         return view('admin.produits.archive', compact('produits'));
     }

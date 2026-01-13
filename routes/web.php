@@ -50,12 +50,24 @@ Route::middleware(['auth', 'role:admin,employe'])->prefix('stock')->name('stock.
     Route::get('/', [StockController::class, 'index'])->name('index');
 
     Route::get('/entrees', [EntreeStockController::class, 'index'])->name('entrees.index');
+    Route::get('/entrees/archive', [EntreeStockController::class, 'archive'])->name('entrees.archive');
+    Route::post('/entrees/{id}/restore', [EntreeStockController::class, 'restore'])->name('entrees.restore');
     Route::get('/entrees/create', [EntreeStockController::class, 'create'])->name('entrees.create');
     Route::post('/entrees', [EntreeStockController::class, 'store'])->name('entrees.store');
+    Route::get('/entrees/{entree}', [EntreeStockController::class, 'show'])->name('entrees.show');
+    Route::get('/entrees/{entree}/edit', [EntreeStockController::class, 'edit'])->name('entrees.edit');
+    Route::put('/entrees/{entree}', [EntreeStockController::class, 'update'])->name('entrees.update');
+    Route::delete('/entrees/{entree}', [EntreeStockController::class, 'destroy'])->name('entrees.destroy');
 
     Route::get('/sorties', [SortieStockController::class, 'index'])->name('sorties.index');
+    Route::get('/sorties/archive', [SortieStockController::class, 'archive'])->name('sorties.archive');
+    Route::post('/sorties/{id}/restore', [SortieStockController::class, 'restore'])->name('sorties.restore');
     Route::get('/sorties/create', [SortieStockController::class, 'create'])->name('sorties.create');
     Route::post('/sorties', [SortieStockController::class, 'store'])->name('sorties.store');
+    Route::get('/sorties/{sortie}', [SortieStockController::class, 'show'])->name('sorties.show');
+    Route::get('/sorties/{sortie}/edit', [SortieStockController::class, 'edit'])->name('sorties.edit');
+    Route::put('/sorties/{sortie}', [SortieStockController::class, 'update'])->name('sorties.update');
+    Route::delete('/sorties/{sortie}', [SortieStockController::class, 'destroy'])->name('sorties.destroy');
 });
 
 Route::middleware(['auth', 'role:admin,employe'])->prefix('exports')->name('exports.')->group(function () {

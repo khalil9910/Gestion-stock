@@ -25,7 +25,7 @@ class CommandeController extends Controller
         $commandes = Commande::query()
             ->with('client')
             ->orderByDesc('date_commande')
-            ->paginate(15);
+            ->get();
 
         return view('ventes.commandes.index', compact('commandes'));
     }
