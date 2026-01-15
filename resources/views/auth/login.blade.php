@@ -9,14 +9,15 @@
                                 <div class="card-body">
                                     <div class="mb-0 border-0 p-md-5 p-lg-0 p-4">
                                         <div class="mb-4 p-0 text-center">
-                                            <a class="auth-logo" href="{{ url('/') }}">
-                                                <img src="{{ asset('admin2/assets/images/logo-dark.png') }}" alt="logo" class="mx-auto" height="28" />
+                                            <a class="auth-logo d-inline-flex align-items-center gap-2" href="{{ url('/') }}">
+                                                <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" class="mx-auto" height="48" />
+                                                <span class="gs-brand-text">{{ config('app.name', 'Gestion de Stock') }}</span>
                                             </a>
                                         </div>
 
                                         <div class="auth-title-section mb-3 text-center">
                                             <h3 class="text-dark fs-20 fw-medium mb-2">Welcome back</h3>
-                                            <p class="text-dark text-capitalize fs-14 mb-0">Sign in to continue to {{ config('app.name', 'Gestion Stock') }}.</p>
+                                            <p class="text-dark text-capitalize fs-14 mb-0">Sign in to continue to {{ config('app.name', 'Gestion de Stock') }}.</p>
                                         </div>
 
                                         @if (session('status'))

@@ -101,7 +101,7 @@
     <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url('/') }}">
-                <img src="{{ asset('admin2/assets/images/logo-sm.png') }}" alt="logo" height="24" />
+                <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" height="28" />
                 <span class="gs-brand-text">Gestion de Stock</span>
             </a>
 
@@ -174,7 +174,7 @@
                                 <span class="badge bg-success-subtle text-success">Online</span>
                                 <span class="text-muted small">Aperçu interface</span>
                             </div>
-                            <div class="text-muted small">{{ config('app.name', 'Gestion Stock') }}</div>
+                            <div class="text-muted small">{{ config('app.name', 'Gestion de Stock') }}</div>
                         </div>
 
                         <div class="row g-3">
@@ -454,7 +454,7 @@
             </div>
         </div>
 
-        <footer class="py-4 text-center text-muted small">&copy; {{ date('Y') }} {{ config('app.name', 'Gestion Stock') }}</footer>
+        <footer class="py-4 text-center text-muted small">&copy; {{ date('Y') }} {{ config('app.name', 'Gestion de Stock') }}</footer>
     </div>
 
     @push('scripts')

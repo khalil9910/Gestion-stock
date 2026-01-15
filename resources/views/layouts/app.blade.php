@@ -70,6 +70,24 @@
             .card.theme-red,
             .adminuiux-card.theme-red{ border-left: 3px solid var(--bs-danger); }
             .bg-theme-2{ background-color: var(--bs-info) !important; }
+
+            .gs-brand-text{
+                font-weight: 700;
+                letter-spacing: .2px;
+                background: linear-gradient(90deg, #0d6efd, #20c997, #0d6efd);
+                background-size: 220% 100%;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                animation: gs-brand 3.6s ease-in-out infinite;
+                white-space: nowrap;
+            }
+
+            @keyframes gs-brand{
+                0%{ background-position: 0% 50%; }
+                50%{ background-position: 100% 50%; }
+                100%{ background-position: 0% 50%; }
+            }
         </style>
     </head>
 
@@ -128,18 +146,20 @@
                         <div class="logo-box">
                             <a class="logo logo-light" href="{{ route('dashboard') }}">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('admin2/assets/images/logo-sm.png') }}" alt="" height="22">
+                                    <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" height="22">
                                 </span>
-                                <span class="logo-lg">
-                                    <img src="{{ asset('admin2/assets/images/logo-light.png') }}" alt="" height="24">
+                                <span class="logo-lg d-flex align-items-center gap-2">
+                                    <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" height="24">
+                                    <span class="gs-brand-text">{{ config('app.name', 'Gestion de Stock') }}</span>
                                 </span>
                             </a>
                             <a class="logo logo-dark" href="{{ route('dashboard') }}">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('admin2/assets/images/logo-sm.png') }}" alt="" height="22">
+                                    <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" height="22">
                                 </span>
-                                <span class="logo-lg">
-                                    <img src="{{ asset('admin2/assets/images/logo-dark.png') }}" alt="" height="24">
+                                <span class="logo-lg d-flex align-items-center gap-2">
+                                    <img src="{{ asset('admin2/assets/images/gestion-stock.png') }}" alt="Gestion Stock" height="24">
+                                    <span class="gs-brand-text">{{ config('app.name', 'Gestion de Stock') }}</span>
                                 </span>
                             </a>
                         </div>
@@ -239,7 +259,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col fs-13 text-muted text-center">
-                                &copy; {{ date('Y') }} {{ config('app.name', 'Gestion Stock') }}
+                                &copy; {{ date('Y') }} {{ config('app.name', 'Gestion de Stock') }}
                             </div>
                         </div>
                     </div>
