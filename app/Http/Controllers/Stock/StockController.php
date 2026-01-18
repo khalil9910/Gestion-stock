@@ -10,6 +10,7 @@ class StockController extends Controller
 {
     public function index(): View
     {
+        Stock::syncAllFromMovements();
         $stocks = Stock::query()->with('produit')->orderByDesc('updated_at')->get();
 
         return view('stock.index', compact('stocks'));

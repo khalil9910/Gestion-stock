@@ -22,5 +22,12 @@ class DatabaseSeeder extends Seeder
             ['email' => 'test@example.com'],
             ['name' => 'Test User', 'role' => User::ROLE_ADMIN, 'password' => Hash::make('password')]
         );
+
+        $this->call([
+            CatalogueSeeder::class,
+            ClientsSeeder::class,
+            StockSeeder::class,
+            CommandesSeeder::class,
+        ]);
     }
 }
